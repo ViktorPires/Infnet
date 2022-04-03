@@ -2,7 +2,7 @@ Algoritmo "Questao 1 - TP3"
 // Disciplina   : [Linguagem e Lógica de Programação]
 // Professor   : Elberth Moraes
 // Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Viktor Maximiliam Oleksiuk Pires
+// Autor(a)    : Viktor Pires
 // Data atual  : 12/3/2022
 
 funcao calcularValorIndividual(): real
