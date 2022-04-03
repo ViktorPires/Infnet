@@ -2,8 +2,8 @@ Algoritmo "Questao 2 - TP3"
 // Disciplina   : [Linguagem e Lógica de Programação]
 // Professor   : Elberth Moraes
 // Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Viktor Maximiliam Oleksiuk Pires
-// Data atual  : 12/3/2022
+// Autor(a)    : Viktor Pires
+// Data atual  : 3/4/2022
 
 Funcao obterDireito(aIdade: inteiro): caractere
 inicio
