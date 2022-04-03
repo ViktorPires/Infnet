@@ -24,7 +24,7 @@ senao
 fimse
 fimFuncao
 
-Procedimento Impressao()
+Procedimento impressao()
 inicio
   direitoFinal <- obterDireito(idade)
 
@@ -43,11 +43,11 @@ enquanto (sair <> "s") e (sair <> "S") faca
   escreva("Informe a idade: ")
   leia(idade)
 
-  Impressao()
+  impressao()
    
    escreva("Deseja sair? S/N: ")
    leia(sair)
    
-fimenquanto
+fimEnquanto
 
 Fimalgoritmo
