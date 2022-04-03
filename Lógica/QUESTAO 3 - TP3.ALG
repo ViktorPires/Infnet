@@ -1,9 +1,19 @@
 Algoritmo "Questao 3 - TP3"
-// Disciplina   : [Linguagem e Lógica de Programação]
+// Disciplina   : [Linguagem e LÃ³gica de ProgramaÃ§Ã£o]
 // Professor   : Elberth Moraes
-// Descrição   : Aqui você descreve o que o programa faz! (função)
+// DescriÃ§Ã£o   : Aqui vocÃª descreve o que o programa faz! (funÃ§Ã£o)
 // Autor(a)    : Viktor Maximiliam Oleksiuk Pires
-// Data atual  : 12/3/2022
+// Data atual  : 3/4/2022
+
+procedimento impressao(aNota: real)
+inicio
+se (aNota >=0) e (aNota <= 10) entao
+    escreva("O(A) vencedor(a) foi ",participanteVencedor," com nota",maiorNota)
+senao
+    interrompa
+fimse
+fimProcedimento
+
 Var
    nota: real
    participante: caractere
@@ -20,17 +30,17 @@ Inicio
       numeroParticipantes <- 0
       totalParticipantes <- 0
       totalParticipantes <- totalParticipantes + 1
-      
-      escreva("Informe o número de participantes: ")
+
+      escreva("Informe o nÃºmero de participantes: ")
       leia(numeroParticipantes)
 
       para totalParticipantes de 1 ate numeroParticipantes faca
-         escreva("Informe o nome do",totalParticipantes,"º participante: ")
+         escreva("Informe o nome do",totalParticipantes,"Âº participante: ")
          leia(participante)
 
-         escreva("Informe a nota do",totalParticipantes,"º do participante: ")
+         escreva("Informe a nota do",totalParticipantes,"Âº do participante: ")
          leia(nota)
-         
+
          se (nota < 0) ou (nota > 10) entao
             escreval("Nota deve estar entre 0 a 10")
             interrompa
@@ -42,9 +52,5 @@ Inicio
          fimse
       fimpara
 
-      se (nota >=0) e (nota <= 10) entao
-         escreva("O(A) vencedor(a) foi ",participanteVencedor," com nota",maiorNota)
-      senao
-         interrompa
-      fimse
+impressao(nota)
 Fimalgoritmo
