@@ -59,7 +59,7 @@ enquanto (sair <> "s") e (sair <> "S") faca
                             se (taxa < 0) ou (taxa > 100) entao
                                escreval("Valor de taxa é inválido!!! Repita o procedimento!!!")
                             senao
-                               impressao()
+                               Impressao()
                             fimse
                     fimse
            fimse
