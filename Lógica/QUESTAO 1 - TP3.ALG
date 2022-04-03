@@ -15,7 +15,7 @@ inicio
   retorne consumoTotal + (consumoTotal * taxa / 100)
 fimFuncao
 
-procedimento Impressao()
+procedimento impressao()
 inicio
     valorFinal <- calcularValorFinal()
 
@@ -59,7 +59,7 @@ enquanto (sair <> "s") e (sair <> "S") faca
                             se (taxa < 0) ou (taxa > 100) entao
                                escreval("Valor de taxa é inválido!!! Repita o procedimento!!!")
                             senao
-                               Impressao()
+                               impressao()
                             fimse
                     fimse
            fimse
