@@ -1,35 +1,53 @@
 Algoritmo "Questao 2 - TP3"
-// Disciplina   : [Linguagem e Lógica de Programação]
+// Disciplina   : [Linguagem e LÃ³gica de ProgramaÃ§Ã£o]
 // Professor   : Elberth Moraes
-// Descrição   : Aqui você descreve o que o programa faz! (função)
-// Autor(a)    : Viktor Maximiliam Oleksiuk Pires
-// Data atual  : 12/3/2022
-Var
-   idade: inteiro
-   sair: caractere
-Inicio
-      idade <- 0
-      sair <- ""
+// DescriÃ§Ã£o   : Aqui vocÃª descreve o que o programa faz! (funÃ§Ã£o)
+// Autor(a)    : Viktor Pires
+// Data atual  : 3/4/2022
 
-      enquanto (sair <> "s") e (sair <> "S") faca
-             escreva("Informe a idade: ")
-              leia(idade)
-                     se (idade > 0) e (idade < 16) entao
-                        escreval("Não tem direito a voto")
-                     senao
-                          se (idade >= 16) e (idade < 18) ou (idade >= 70) entao
-                             escreval("Eleitor Facultativo")
-                          senao
-                               se (idade >= 18) e (idade < 70) entao
-                                  escreval("Eleitor Obrigatório")
-                               senao
-                                    se idade = 0 entao
-                                       escreval("Idade deve ser maior que 0")
-                                    fimse
-                               fimse
-                          fimse
-                     fimse
-              escreva("Deseja sair? S/N: ")
-              leia(sair)
-      fimenquanto
+Funcao obterDireito(aIdade: inteiro): caractere
+inicio
+se (aIdade > 0) e (aIdade < 16) entao
+   retorne "NÃ£o tem direito a voto"
+senao
+   se (aIdade >= 16) e (aIdade < 18) ou (aIdade >= 70) entao
+      retorne "Eleitor Facultativo"
+   senao
+      se (aIdade >= 18) e (aIdade < 70) entao
+         retorne "Eleitor ObrigatÃ³rio"
+      senao
+         se aIdade = 0 entao
+            retorne "Idade deve ser maior que 0"
+         fimse
+      fimse
+   fimse
+fimse
+fimFuncao
+
+Procedimento impressao()
+inicio
+  direitoFinal <- obterDireito(idade)
+
+  escreval(direitoFinal)
+fimProcedimento
+
+Var
+   sair: caractere
+   idade: inteiro
+   direitoFinal: caractere
+Inicio
+sair <- ""
+
+enquanto (sair <> "s") e (sair <> "S") faca
+
+  escreva("Informe a idade: ")
+  leia(idade)
+
+  impressao()
+   
+   escreva("Deseja sair? S/N: ")
+   leia(sair)
+   
+fimEnquanto
+
 Fimalgoritmo
