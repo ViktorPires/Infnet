@@ -7,8 +7,10 @@ import br.edu.infnet.appmecanica.model.domain.Funilaria;
 import br.edu.infnet.appmecanica.model.domain.Mecanica;
 import br.edu.infnet.appmecanica.model.domain.Servico;
 import br.edu.infnet.appmecanica.model.exceptions.AcessorioEmFaltaException;
+import br.edu.infnet.appmecanica.model.exceptions.ClienteInvalidoException;
 import br.edu.infnet.appmecanica.model.exceptions.FunilariaInvalidoException;
 import br.edu.infnet.appmecanica.model.exceptions.OrcamentoZeradoException;
+import br.edu.infnet.appmecanica.model.exceptions.QuantidadePecaInvalidoException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +33,7 @@ public class AtendimentoTest {
 			
 			servicosATDM3.add(mecanica1);
 			
-		} catch (OrcamentoZeradoException e) {
+		} catch (OrcamentoZeradoException | QuantidadePecaInvalidoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}	
 		
@@ -42,7 +44,7 @@ public class AtendimentoTest {
 			mecanica2.setPecaNova(true);
 			
 			servicosATDM3.add(mecanica2);
-		} catch (OrcamentoZeradoException e) {
+		} catch (OrcamentoZeradoException | QuantidadePecaInvalidoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}	
 		
@@ -53,7 +55,7 @@ public class AtendimentoTest {
 			mecanica3.setPecaNova(false);
 			
 			servicosATDM4.add(mecanica3);
-		} catch (OrcamentoZeradoException e) {
+		} catch (OrcamentoZeradoException | QuantidadePecaInvalidoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}	
 		
@@ -83,7 +85,7 @@ public class AtendimentoTest {
 		}	
 		
 		try {
-			Acessorio acessorio1 = new Acessorio("Adicionar Pelicula", 1500, 4248, "Segurança", "3M", true, true);
+			Acessorio acessorio1 = new Acessorio("Adicionar Película", 1500, 4248, "Segurança", "3M", true, true);
 			
 			servicosATDM1.add(acessorio1);
 			servicosATDM4.add(acessorio1);
@@ -107,41 +109,51 @@ public class AtendimentoTest {
 		} catch (OrcamentoZeradoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}	
-			
-		Cliente cliente1 = new Cliente("Pedrinho", "Rua do Barão, Porto Alegre", "51952524555", "Golf", 2021);
-	
-		Cliente cliente2 = new Cliente("Zezinho", "Rua Leopoldina, Canoas", "519241236987", "Polo", 2019);
+
 		
-		Cliente cliente3 = new Cliente("Luizinho", "Rua do Gravataí, Viamão", "51952524555", "Onyx", 2018);
-		
-		
+		try {
 		Atendimento atendimento1 = new Atendimento();
 		atendimento1.setDescricao("Primeiro Atendimento");
-		atendimento1.setCliente(cliente1);
+		atendimento1.setCliente(new Cliente("Pedrinho", "Rua do Barão, Porto Alegre", "51952524555", "Golf", 2021));
 		atendimento1.setMecanicoResponsavel("Matheus");
 		atendimento1.setServicos(servicosATDM1);
 		atendimento1.imprimir();
+		} catch (ClienteInvalidoException e) {
+			System.out.println("[ERRO] " + e.getMessage());
+		}
 		
+		try {
 		Atendimento atendimento2 = new Atendimento(); 
 		atendimento2.setDescricao("Segundo Atendimento");
-		atendimento2.setCliente(cliente2);
+		atendimento2.setCliente(new Cliente("Zezinho", "Rua Leopoldina, Canoas", "519241236987", "Polo", 2019));
 		atendimento2.setMecanicoResponsavel("João");
 		atendimento2.setServicos(servicosATDM2);
 		atendimento2.imprimir();
-
+		} catch (ClienteInvalidoException e) {
+			System.out.println("[ERRO] " + e.getMessage());
+		} 
+		
+		try {
 		Atendimento atendimento3 = new Atendimento(); 
 		atendimento3.setDescricao("Terceiro Atendimento");
-		atendimento3.setCliente(cliente3);
+		atendimento3.setCliente(new Cliente("Luizinho", "Rua do Gravataí, Viamão", "51952524555", "Onyx", 2018));
 		atendimento3.setMecanicoResponsavel("Rogério");
 		atendimento3.setServicos(servicosATDM3);
 		atendimento3.imprimir();
+		} catch (ClienteInvalidoException e) {
+			System.out.println("[ERRO] " + e.getMessage());
+		}
 		
+		try {
 		Atendimento atendimento4 = new Atendimento(); 
 		atendimento4.setDescricao("Quarto Atendimento");
-		atendimento4.setCliente(cliente1);
+		atendimento4.setCliente(new Cliente("Zezinho", "Av. João Pessoa, Porto Alegre", "51952528799", "C3", 2019));
 		atendimento4.setMecanicoResponsavel("Rogério");
 		atendimento4.setServicos(servicosATDM4);
 		atendimento4.imprimir();
+		} catch (ClienteInvalidoException e) {
+			System.out.println("[ERRO] " + e.getMessage());
+		}
 	}
 
 }

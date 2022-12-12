@@ -1,5 +1,7 @@
 package br.edu.infnet.appmecanica.model.domain;
 
+import br.edu.infnet.appmecanica.model.exceptions.ClienteInvalidoException;
+
 public class Cliente {
 	
 	private String nome;
@@ -8,7 +10,28 @@ public class Cliente {
 	private String veiculo;
 	private int anoVeiculo;
 	
-	public Cliente(String nome, String endereco, String telefone, String veiculo, int anoVeiculo) {
+	public Cliente(String nome, String endereco, String telefone, String veiculo, int anoVeiculo) throws ClienteInvalidoException {
+		
+		if(nome == null || nome == "") {
+			throw new ClienteInvalidoException("O nome do cliente deve ser preenchido!");
+		}
+		
+		if(endereco == null) {
+			throw new ClienteInvalidoException("O endereço do cliente deve ser preenchido!");
+		}
+		
+		if(telefone == null) {
+			throw new ClienteInvalidoException("O telefone do cliente deve ser preenchido!");
+		}
+		
+		if(veiculo == null) {
+			throw new ClienteInvalidoException("O veículo do cliente deve ser preenchido!");
+		}
+		
+		if(anoVeiculo == 0) {
+			throw new ClienteInvalidoException("O ano do veículo não pode ser zero!");
+		}
+		
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;

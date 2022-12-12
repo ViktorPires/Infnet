@@ -22,13 +22,9 @@ public class Mecanica extends Servico {
 			throw new QuantidadePecaInvalidoException("A quantidade de peça não pode ser zero!");
 		}
 		
-		if(quantidade < 0) {
-			throw new QuantidadePecaInvalidoException("A quantidade de peça não pode ser negativa!");
-		}
-		
 		float valorPeca = pecaNova ? 1500 : 500;
 		
-	float valorFinal = 0;
+		float valorFinal = 0;
 		
 		if(quantidade > 1) {
 			valorFinal = this.getOrcamento() + valorPeca + ((quantidade - 1) * this.getOrcamento() / 3);
@@ -68,7 +64,16 @@ public class Mecanica extends Servico {
 		return quantidade;
 	}
 	
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(int quantidade) throws QuantidadePecaInvalidoException  {
+		
+		if(quantidade == 0) {
+			throw new QuantidadePecaInvalidoException("A quantidade de peça não pode ser zero!");
+		}
+		
+		if(quantidade < 0) {
+			throw new QuantidadePecaInvalidoException("A quantidade de peça não pode ser negativa!");
+		}
+		
 		this.quantidade = quantidade;
 	}
 	

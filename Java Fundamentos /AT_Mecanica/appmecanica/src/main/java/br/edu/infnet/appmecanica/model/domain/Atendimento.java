@@ -18,8 +18,12 @@ public class Atendimento {
 	
 	public void imprimir() {
 		System.out.println("Atendimento: " + this);
-		System.out.println("Quantidade de Serviços: " + servicos.size());
 		System.out.println("Cliente: " + cliente);
+		System.out.println("Quantidade de Serviços: " + servicos.size());
+		System.out.println("Serviços: ");
+		for(Servico s : servicos) {
+			System.out.println("- " + s.getNome() + " -> Orçamento: R$" + s.getOrcamento());
+		}
 	}
 	
 	@Override
