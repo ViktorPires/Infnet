@@ -7,6 +7,8 @@ import br.edu.infnet.appmecanica.model.domain.Funilaria;
 import br.edu.infnet.appmecanica.model.domain.Mecanica;
 import br.edu.infnet.appmecanica.model.domain.Servico;
 import br.edu.infnet.appmecanica.model.exceptions.AcessorioEmFaltaException;
+import br.edu.infnet.appmecanica.model.exceptions.AtendimentoSemClienteException;
+import br.edu.infnet.appmecanica.model.exceptions.AtendimentoSemServicoException;
 import br.edu.infnet.appmecanica.model.exceptions.ClienteInvalidoException;
 import br.edu.infnet.appmecanica.model.exceptions.FunilariaInvalidoException;
 import br.edu.infnet.appmecanica.model.exceptions.OrcamentoZeradoException;
@@ -112,48 +114,59 @@ public class AtendimentoTest {
 
 		
 		try {
-		Atendimento atendimento1 = new Atendimento();
-		atendimento1.setDescricao("Primeiro Atendimento");
-		atendimento1.setCliente(new Cliente("Pedrinho", "Rua do Barão, Porto Alegre", "51952524555", "Golf", 2021));
-		atendimento1.setMecanicoResponsavel("Matheus");
-		atendimento1.setServicos(servicosATDM1);
-		atendimento1.imprimir();
-		} catch (ClienteInvalidoException e) {
+			Atendimento atendimento1 = new Atendimento(new Cliente("Pedrinho", "Rua do Barão, Porto Alegre", "51952524555", "Golf", 2021), servicosATDM1);
+			atendimento1.setDescricao("Primeiro Atendimento");
+			atendimento1.setMecanicoResponsavel("Matheus");
+			atendimento1.imprimir();
+		} catch (ClienteInvalidoException | AtendimentoSemClienteException | AtendimentoSemServicoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
 		try {
-		Atendimento atendimento2 = new Atendimento(); 
-		atendimento2.setDescricao("Segundo Atendimento");
-		atendimento2.setCliente(new Cliente("Zezinho", "Rua Leopoldina, Canoas", "519241236987", "Polo", 2019));
-		atendimento2.setMecanicoResponsavel("João");
-		atendimento2.setServicos(servicosATDM2);
-		atendimento2.imprimir();
-		} catch (ClienteInvalidoException e) {
+			Atendimento atendimento2 = new Atendimento(new Cliente("Zezinho", "Rua Leopoldina, Canoas", "519241236987", "Polo", 2019), servicosATDM2); 
+			atendimento2.setDescricao("Segundo Atendimento");
+			atendimento2.setMecanicoResponsavel("João");
+			atendimento2.imprimir();
+		} catch (ClienteInvalidoException | AtendimentoSemClienteException | AtendimentoSemServicoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		} 
 		
 		try {
-		Atendimento atendimento3 = new Atendimento(); 
-		atendimento3.setDescricao("Terceiro Atendimento");
-		atendimento3.setCliente(new Cliente("Luizinho", "Rua do Gravataí, Viamão", "51952524555", "Onyx", 2018));
-		atendimento3.setMecanicoResponsavel("Rogério");
-		atendimento3.setServicos(servicosATDM3);
-		atendimento3.imprimir();
-		} catch (ClienteInvalidoException e) {
+			Atendimento atendimento3 = new Atendimento(new Cliente("Luizinho", "Rua do Gravataí, Viamão", "51952524555", "Onyx", 2018), servicosATDM3); 
+			atendimento3.setDescricao("Terceiro Atendimento");
+			atendimento3.setMecanicoResponsavel("Rogério");
+			atendimento3.imprimir();
+		} catch (ClienteInvalidoException | AtendimentoSemClienteException | AtendimentoSemServicoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
 		try {
-		Atendimento atendimento4 = new Atendimento(); 
-		atendimento4.setDescricao("Quarto Atendimento");
-		atendimento4.setCliente(new Cliente("Zezinho", "Av. João Pessoa, Porto Alegre", "51952528799", "C3", 2019));
-		atendimento4.setMecanicoResponsavel("Rogério");
-		atendimento4.setServicos(servicosATDM4);
-		atendimento4.imprimir();
-		} catch (ClienteInvalidoException e) {
+			Atendimento atendimento4 = new Atendimento(new Cliente("Zezinho", "Av. João Pessoa, Porto Alegre", "51952528799", "C3", 2019), servicosATDM4); 
+			atendimento4.setDescricao("Quarto Atendimento");
+			atendimento4.setMecanicoResponsavel("Rogério");
+			atendimento4.imprimir();
+		} catch (ClienteInvalidoException | AtendimentoSemClienteException | AtendimentoSemServicoException e) {
+			System.out.println("[ERRO] " + e.getMessage());
+		}
+		
+		try {			
+			Atendimento atendimento5 = new Atendimento(null, servicosATDM4); 
+			atendimento5.setDescricao("Quinto Atendimento");
+			atendimento5.setMecanicoResponsavel("Rogério");
+			atendimento5.imprimir();
+		} catch (AtendimentoSemClienteException | AtendimentoSemServicoException e) {
+			System.out.println("[ERRO] " + e.getMessage());
+		}
+		
+		try {
+			Cliente cliente6 = new Cliente("Roberta", "Rua da República, Porto Alegre", "51986237630", "208", 2021);
+			
+			Atendimento atendimento6 = new Atendimento(cliente6, null); 
+			atendimento6.setDescricao("Quinto Atendimento");
+			atendimento6.setMecanicoResponsavel("Rogério");
+			atendimento6.imprimir();
+		} catch (ClienteInvalidoException | AtendimentoSemClienteException | AtendimentoSemServicoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 	}
-
 }

@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import br.edu.infnet.appmecanica.model.exceptions.AtendimentoSemClienteException;
+import br.edu.infnet.appmecanica.model.exceptions.AtendimentoSemServicoException;
+
+
 public class Atendimento {
 	
 	private String descricao;
@@ -12,7 +16,18 @@ public class Atendimento {
 	private Cliente cliente;
 	private List<Servico> servicos;
 	
-	public Atendimento() {
+	public Atendimento(Cliente cliente, List<Servico> servicos) throws AtendimentoSemClienteException, AtendimentoSemServicoException {
+		
+		if(cliente == null) {
+			throw new AtendimentoSemClienteException("Não existe um cliente associado ao atendimento!");
+		}
+		
+		if(servicos == null) {
+			throw new AtendimentoSemServicoException("Não existe nenhum serviço associado ao atendimento!");
+		}
+		
+		this.cliente = cliente;
+		this.servicos = servicos;
 		data = LocalDate.now();
 	}
 	
@@ -61,16 +76,7 @@ public class Atendimento {
 		return cliente;
 	}
 	
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	
 	public List<Servico> getServicos() {
 		return servicos;
 	}
-	
-	public void setServicos(List<Servico> servicos) {
-		this.servicos = servicos;
-	}	
-	
 }

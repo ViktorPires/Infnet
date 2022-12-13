@@ -37,15 +37,15 @@ public class ClienteTest {
 		}
 		
 		try {
-			Cliente cliente4 = new Cliente("Roberta", "Rua da República, Porto Alegre", null, "208", 2021);
-			System.out.println(cliente4);
+			Cliente cliente5 = new Cliente("Roberta", "Rua da República, Porto Alegre", null, "208", 2021);
+			System.out.println(cliente5);
 		} catch (ClienteInvalidoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
 		try {
-			Cliente cliente5 = new Cliente("Zezinho", "Av. João Pessoa, Porto Alegre", "51952528799", "C3", 0);
-			System.out.println(cliente5);
+			Cliente cliente6 = new Cliente("Zezinho", "Av. João Pessoa, Porto Alegre", "51952528799", "C3", 0);
+			System.out.println(cliente6);
 		} catch (ClienteInvalidoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
