@@ -10,8 +10,8 @@ public class Mecanica extends Servico {
 	private String fabricante;
 	private boolean pecaNova;
 	
-	public Mecanica(String nome, float orcamento, int id, String peca) throws OrcamentoZeradoException {
-		super(nome, orcamento, id);
+	public Mecanica(String nome, float orcamento, int codigoRegistro, String peca) throws OrcamentoZeradoException {
+		super(nome, orcamento, codigoRegistro);
 		this.peca = peca;
 	}	
 	

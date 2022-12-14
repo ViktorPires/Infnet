@@ -36,9 +36,24 @@ public class Atendimento {
 		System.out.println("Cliente: " + cliente);
 		System.out.println("Quantidade de Serviços: " + servicos.size());
 		System.out.println("Serviços: ");
+		float orcamentoFinal = 0;
+		int i = 1;
 		for(Servico s : servicos) {
 			System.out.println("- " + s.getNome() + " -> Orçamento: R$" + s.getOrcamento());
+			
+			orcamentoFinal = orcamentoFinal + s.getOrcamento();
+			
+			if(i == servicos.size()) {
+				System.out.println("Orçamento Total: R$" + orcamentoFinal);
+			}
+			i++;
 		}
+	}
+	
+	public String obterLinhaArq() {
+		DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		return this.getData().format(formatoData) + ";" + this.getDescricao() + ";" + this.getCliente() + ";" + this.getServicos().size() + "\r\n";
 	}
 	
 	@Override
