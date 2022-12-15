@@ -1,5 +1,6 @@
 package br.edu.infnet.appmecanica.model.domain;
 
+import br.edu.infnet.appmecanica.model.auxiliar.Constante;
 import br.edu.infnet.appmecanica.model.exceptions.OrcamentoZeradoException;
 import br.edu.infnet.appmecanica.model.exceptions.FunilariaInvalidoException;
 
@@ -27,10 +28,10 @@ public class Funilaria extends Servico {
 	@Override
 	public float calcularValorOrcamento() {
 		
-		float valorMartelinho = martelinho ? 400 : 0;
-		float valorLanternagem = lanternagem ? 800 : 0;
-		float valorPolimento = polimento ? 1200 : 0;
-		float valorPintura = pintura ? 1000 : 0;
+		float valorMartelinho = martelinho ? Constante.MARTELINHO_SIM : Constante.SERVICO_NAO;
+		float valorLanternagem = lanternagem ? Constante.LANTERNAGEM_SIM : Constante.SERVICO_NAO;
+		float valorPolimento = polimento ? Constante.POLIMENTO_SIM : Constante.SERVICO_NAO;
+		float valorPintura = pintura ? Constante.PINTURA_SIM : Constante.SERVICO_NAO;
 		
 		return this.getOrcamento() + valorMartelinho + valorLanternagem + valorPolimento + valorPintura;
 	}
@@ -43,13 +44,13 @@ public class Funilaria extends Servico {
 		sb.append(";");
 		sb.append(material);
 		sb.append(";");
-		sb.append(martelinho ? "Martelinho = Sim" : "Martelinho = Não");
+		sb.append(martelinho ? Constante.MARTELINHO_SIM_STR : Constante.MARTELINHO_NAO_STR);
 		sb.append(";");
-		sb.append(lanternagem ? "Lanternagem = Sim" : "Lanternagem = Não");
+		sb.append(lanternagem ? Constante.LANTERNAGEM_SIM_STR : Constante.LANTERNAGEM_NAO_STR);
 		sb.append(";");
-		sb.append(polimento ? "Polimento = Sim" : "Polimento = Não");
+		sb.append(polimento ? Constante.POLIMENTO_SIM_STR : Constante.POLIMENTO_NAO_STR);
 		sb.append(";");
-		sb.append(pintura ? "Pintura = Sim" : "Pintura = Não");
+		sb.append(pintura ? Constante.PINTURA_SIM_STR : Constante.PINTURA_NAO_STR);
 		
 		return sb.toString();
 	}

@@ -1,5 +1,6 @@
 package br.edu.infnet.appmecanica.model.domain;
 
+import br.edu.infnet.appmecanica.model.auxiliar.Constante;
 import br.edu.infnet.appmecanica.model.exceptions.OrcamentoZeradoException;
 import br.edu.infnet.appmecanica.model.exceptions.AcessorioEmFaltaException;
 
@@ -25,7 +26,7 @@ public class Acessorio extends Servico {
 			throw new AcessorioEmFaltaException("Acessório em falta no estoque!");
 		}
 		
-		float valorAcessorio = acessorioOriginal ? 1000 : 350;
+		float valorAcessorio = acessorioOriginal ? Constante.ACESSORIO_ORIGINAL : Constante.ACESSORIO_ALTERNATIVO;
 		
 		return this.getOrcamento() + valorAcessorio;
 	} 
@@ -40,9 +41,9 @@ public class Acessorio extends Servico {
 		sb.append(";");
 		sb.append(fabricante);
 		sb.append(";");
-		sb.append(acessorioOriginal ? "Acessório Original" : "Acessório Alternativo");
+		sb.append(acessorioOriginal ? Constante.ACESSORIO_ORIGINAL_STR : Constante.ACESSORIO_ALTERNATIVO_STR);
 		sb.append(";");
-		sb.append(acessorioEstoque ? "Acessório em Estoque" : "Acessório em Falta");
+		sb.append(acessorioEstoque ? Constante.ACESSORIO_ESTOQUE_STR : Constante.ACESSORIO_FALTA_STR);
 		
 		return sb.toString();
 	}

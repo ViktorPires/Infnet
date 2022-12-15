@@ -1,5 +1,6 @@
 package br.edu.infnet.appmecanica.model.domain;
 
+import br.edu.infnet.appmecanica.model.auxiliar.Constante;
 import br.edu.infnet.appmecanica.model.exceptions.OrcamentoZeradoException;
 import br.edu.infnet.appmecanica.model.exceptions.QuantidadePecaInvalidoException;
 
@@ -22,7 +23,7 @@ public class Mecanica extends Servico {
 			throw new QuantidadePecaInvalidoException("A quantidade de peça não pode ser zero!");
 		}
 		
-		float valorPeca = pecaNova ? 1500 : 500;
+		float valorPeca = pecaNova ? Constante.PECA_NOVA : Constante.PECA_USADA;
 		
 		float valorFinal = 0;
 		
@@ -47,7 +48,7 @@ public class Mecanica extends Servico {
 		sb.append(";");
 		sb.append(fabricante);
 		sb.append(";");
-		sb.append(pecaNova ? "Peça Nova" : "Peça Usada");
+		sb.append(pecaNova ? Constante.PECA_NOVA_STR : Constante.PECA_USADA_STR);
 		
 		return sb.toString();
 	}
