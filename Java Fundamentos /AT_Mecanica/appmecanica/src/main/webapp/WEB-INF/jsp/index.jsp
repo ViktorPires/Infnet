@@ -22,7 +22,7 @@
   				AppMecanica
   			<i class="fas fa-wrench"></i>
 		</h2>
-		<h3>Cadastro de <a href="/usuario">usuários</a></h3>
+		<h3>Cadastro de <a href="/usuario/lista">usuários</a></h3>
 	</div>
 	<footer class="fixed-bottom">
 		<div>

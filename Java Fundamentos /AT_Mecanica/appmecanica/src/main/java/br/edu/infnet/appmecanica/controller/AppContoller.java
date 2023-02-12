@@ -8,6 +8,11 @@ public class AppContoller {
 
 	@GetMapping(value = "/")
 	public String telaIndex() {
+		return "redirect:/login";
+	}
+	
+	@GetMapping(value = "/home")
+	public String telaHome() {
 		return "index";
 	}
 }
