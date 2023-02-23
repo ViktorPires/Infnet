@@ -1,9 +1,10 @@
 package br.edu.infnet.appmecanica.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import java.util.List;
 
 import br.edu.infnet.appmecanica.model.domain.Usuario;
 import br.edu.infnet.appmecanica.model.repository.UsuarioRepository;
@@ -12,21 +13,21 @@ import br.edu.infnet.appmecanica.model.repository.UsuarioRepository;
 @Controller
 public class UsuarioContoller {	
 	
+	private String msg;
+	
 	@GetMapping(value = "/usuario")
 	public String telaCadastro() {
 		return "usuario/cadastro";
 	}
 	
 	@GetMapping(value = "/usuario/lista")
-	public String telaLista() {
+	public String telaLista(Model model) {
 		
-		List<Usuario> lista = UsuarioRepository.obterLista();
+		model.addAttribute("usuarios", UsuarioRepository.obterLista());
 		
-		System.out.println("Quantidade de usuários - " + lista.size());
+		model.addAttribute("mensagem", msg);
 		
-		for(Usuario user : lista) {
-			System.out.printf("%s - %s\n", user.getNome(), user.getEmail());
-		}
+		msg = null;
 		
 		return "usuario/lista";
 	}
@@ -35,6 +36,18 @@ public class UsuarioContoller {
 	public String incluir(Usuario usuario) {
 		
 		UsuarioRepository.incluir(usuario);
+		
+		msg = "A inclusão do usuário " + usuario.getNome() + " foi realizada com sucesso!";
+		
+		return "redirect:/";
+	}
+	
+	@GetMapping(value = "/usuario/{id}/excluir")
+	public String excluir(@PathVariable Integer id) {
+		
+		Usuario usuario = UsuarioRepository.excluir(id);
+		
+		msg = "A exclusão do usuário " + usuario.getNome() + " foi realizada com sucesso!";
 		
 		return "redirect:/usuario/lista";
 	}
