@@ -6,9 +6,10 @@
 	<meta charset="UTF-8">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-	<link href="${pageContext.request.contextPath}/resources/css/index.css" rel="stylesheet">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css">
+	<link href="${pageContext.request.contextPath}/resources/css/menu.css" rel="stylesheet">
 	<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/resources/img/garage.png">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
 	<title>AppMecânica</title>
 	<style>
 		body {
@@ -21,29 +22,29 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container">
-	<div class="form-container">
-        <h2 class="text-center">Autenticação</h2>
-        
-        <c:if test="${not empty mensagem}">
-        	<div class="alert alert-danger">
-    			<strong>Atenção</strong> ${mensagem}
-    		</div>
-        </c:if>
-        
-        <form action="/login" method="post">
-            <div class="form-group">
-                <label>E-mail:</label>
-                <input type="email" name="email" placeholder="Digite o seu e-mail"> 
-            </div>
-            <div class="form-group">
-                <label>Senha:</label>
-                <input type="password" name="senha" placeholder="Digite a sua senha">
-            </div>
-            <div class="form-group text-center">
-               <button type="submit" class="btn btn-primary">Acessar</button>
-            </div>
-   		</form>
-   	</div>
+		<div class="form-container">
+	        <h2 class="text-center">Autenticação</h2>
+	        
+	        <c:if test="${not empty mensagem}">
+	        	<div class="alert alert-danger">
+	    			<strong>Atenção</strong> ${mensagem}
+	    		</div>
+	        </c:if>
+	        
+	        <form action="/login" method="post">
+	            <div class="form-group">
+	                <label>E-mail:</label>
+	                <input type="email" name="email" placeholder="Digite o seu e-mail"> 
+	            </div>
+	            <div class="form-group">
+	                <label>Senha:</label>
+	                <input type="password" name="senha" placeholder="Digite a sua senha">
+	            </div>
+	            <div class="form-group text-center">
+	               <button type="submit" class="btn btn-primary">Acessar</button>
+	            </div>
+	   		</form>
+	   	</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>

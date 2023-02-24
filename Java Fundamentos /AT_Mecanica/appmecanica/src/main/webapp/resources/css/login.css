@@ -1,9 +1,10 @@
 body {
 	background-size: cover;
 	background-repeat: no-repeat;
+	color: #fff;
 	background-position: center center;
 	height: 100vh;
-	color: white;
+	font-family: Arial, sans-serif;
 }
 
 .container {
@@ -11,6 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: none;
 }
 
 .form-container {
