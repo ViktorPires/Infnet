@@ -1,0 +1,28 @@
+.container {
+	background-color: rgba(0,0,0,0.3);
+}
+
+tr {
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+tr:hover {
+	background-color: rgba(255, 160, 0, 0.3);
+}
+
+.excluir {
+	border: none;
+}
+
+.excluir:hover {
+	padding: 0;
+}
+
+.excluir i {
+	transition: all 0.3s ease-in-out;
+}
+
+.excluir i:hover {
+	color: red;
+	transform: scale(1.3);
+}
