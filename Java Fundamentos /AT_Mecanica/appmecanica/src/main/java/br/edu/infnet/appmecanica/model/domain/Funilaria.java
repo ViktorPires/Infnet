@@ -12,8 +12,8 @@ public class Funilaria extends Servico {
 	private boolean polimento;
 	private boolean pintura;
 	
-	public Funilaria(String nome, float orcamento, int codigoRegistro, String material, boolean martelinho, boolean lanternagem, boolean polimento, boolean pintura) throws OrcamentoZeradoException, FunilariaInvalidoException {
-		super(nome, orcamento, codigoRegistro);
+	public Funilaria(String servico, float orcamento, Integer codigoRegistro, String material, boolean martelinho, boolean lanternagem, boolean polimento, boolean pintura) throws OrcamentoZeradoException, FunilariaInvalidoException {
+		super(servico, orcamento, codigoRegistro);
 		this.material = material;
 		this.martelinho = martelinho;
 		this.lanternagem = lanternagem;
@@ -67,12 +67,20 @@ public class Funilaria extends Servico {
 		return martelinho;
 	}
 	
+	public String getMartelinho() {
+	    return martelinho ? "Sim" : "Não";
+	}
+	
 	public void setMartelinho(boolean martelinho) {
 		this.martelinho = martelinho;
 	}
 	
 	public boolean isLanternagem() {
 		return lanternagem;
+	}
+	
+	public String getLanternagem() {
+	    return lanternagem ? "Sim" : "Não";
 	}
 	
 	public void setLanternagem(boolean lanternagem) {
@@ -83,12 +91,20 @@ public class Funilaria extends Servico {
 		return polimento;
 	}
 	
+	public String getPolimento() {
+	    return polimento ? "Sim" : "Não";
+	}
+	
 	public void setPolimento(boolean polimento) {
 		this.polimento = polimento;
 	}
 	
 	public boolean isPintura() {
 		return pintura;
+	}
+	
+	public String getPintura() {
+	    return pintura ? "Sim" : "Não";
 	}
 	
 	public void setPintura(boolean pintura) {

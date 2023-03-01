@@ -6,12 +6,12 @@ import br.edu.infnet.appmecanica.model.exceptions.QuantidadePecaInvalidoExceptio
 
 public abstract class Servico {
 	
-	private String nome;
+	private String servico;
 	private float orcamento;
-	private int codigoRegistro;
+	private Integer codigoRegistro;
 	
 
-	public Servico(String nome, float orcamento, int codigoRegistro) throws OrcamentoZeradoException {
+	public Servico(String servico, float orcamento, Integer codigoRegistro) throws OrcamentoZeradoException {
 		
 		if(orcamento == 0) {
 			throw new OrcamentoZeradoException("O orçamento não pode estar zerado!");
@@ -21,7 +21,7 @@ public abstract class Servico {
 			throw new OrcamentoZeradoException("O orcamento não pode ser negativo!");
 		}
 		
-		this.nome = nome;
+		this.servico = servico;
 		this.orcamento = orcamento;
 		this.codigoRegistro = codigoRegistro;
 	}
@@ -32,7 +32,7 @@ public abstract class Servico {
 	public String toString() {
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append(nome);
+		sb.append(servico);
 		sb.append(";");
 		sb.append(orcamento);
 		sb.append(";");
@@ -41,8 +41,8 @@ public abstract class Servico {
 		return sb.toString();
 	}
 	
-	public String getNome() {
-		return nome;
+	public String getServico() {
+		return servico;
 	}
 	
 	public float getOrcamento() {
@@ -51,6 +51,10 @@ public abstract class Servico {
 	
 	public int getCodigoRegistro() {
 		return codigoRegistro;
+	}
+	
+	public void setCodigoRegistro(Integer codigoRegistro) {
+		this.codigoRegistro = codigoRegistro;
 	}
 
 }

@@ -11,8 +11,8 @@ public class Mecanica extends Servico {
 	private String fabricante;
 	private boolean pecaNova;
 	
-	public Mecanica(String nome, float orcamento, int codigoRegistro, String peca) throws OrcamentoZeradoException {
-		super(nome, orcamento, codigoRegistro);
+	public Mecanica(String servico, float orcamento, Integer codigoRegistro, String peca) throws OrcamentoZeradoException {
+		super(servico, orcamento, codigoRegistro);
 		this.peca = peca;
 	}	
 	
@@ -88,6 +88,10 @@ public class Mecanica extends Servico {
 	
 	public boolean isPecaNova() {
 		return pecaNova;
+	}
+	
+	public String getPecaNova() {
+	    return pecaNova ? "Sim" : "Não";
 	}
 	
 	public void setPecaNova(boolean pecaNova) {

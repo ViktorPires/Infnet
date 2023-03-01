@@ -39,7 +39,7 @@ public class Atendimento {
 		float orcamentoFinal = 0;
 		int i = 1;
 		for(Servico s : servicos) {
-			System.out.println("- " + s.getNome() + " -> Orçamento: R$" + s.getOrcamento());
+			System.out.println("- " + s.getServico() + " -> Orçamento: R$" + s.getOrcamento());
 			
 			orcamentoFinal = orcamentoFinal + s.getOrcamento();
 			
