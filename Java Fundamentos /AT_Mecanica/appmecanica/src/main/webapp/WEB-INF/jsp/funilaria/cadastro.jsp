@@ -13,7 +13,7 @@
 	<title>Serviço de Funilaria - Cadastro</title>
 	<style>
 		body {
-    		background-image: url("../../../resources/img/mecanica.jpg");
+    		background-image: url("../../../resources/img/funilaria.jpg");
 		}
 	</style>
 </head>
@@ -28,17 +28,17 @@
 			<div>
 				<div class="form-group">
 					<label for="servico">Serviço:</label> 
-					<input type="text" name="servico" placeholder="Descreva o serviço">
-				</div>
-				<div class="form-group">
-					<label for="orcamento">Orçamento:</label> 
-					<input type="number" step="any" name="orcamento" placeholder="Digite o valor do orçamento">
+					<input type="text" name="servico" placeholder="Descreva o serviço" required>
 				</div>
 				<div class="form-group">
 					<label for="material">Material:</label> 
-					<input type="text" name="material" placeholder="Descreva os materiais utilizados">
+					<input type="text" name="material" placeholder="Descreva os materiais utilizados" required>
 				</div>
-				<h4 class="text-center">Selecione os serviços prestados</h4>
+				<div class="form-group">
+					<label for="orcamento">Orçamento:</label> 
+					<input type="number" step="any" name="orcamento" placeholder="Valor do orçamento" required>
+				</div>
+				<h4 class="text-center mt-2">Selecione os Serviços Prestados</h4>
 				<div class="form-group">
 					<label for="martelinho">Martelinho</label> 
 					<input type="checkbox" id="martelinho" name="martelinho" value="true" ${not empty checkboxChecked ? 'checked' : ''}>

@@ -19,7 +19,7 @@
 		          <a class="nav-link active text-white" aria-current="page" href="/usuario/lista">Usuário</a>
 		        </li>
 		        <li class="nav-item ms-2">
-		          <a class="nav-link text-white" href="#">Cliente</a>
+		          <a class="nav-link text-white" href="/cliente/lista">Cliente</a>
 		        </li>
 		         <li class="nav-item ms-2">
 		          <a class="nav-link text-white" href="#">Atendimento</a>
@@ -40,27 +40,27 @@
         		<ul class="nav navbar-nav justify-content-end">
         			<c:if test="${empty usuario}">
 			     		<li class="nav-item">
-			        		<a class="nav-link text-white" href="/login">
+			        		<a class="nav-link text-white border border-warning border-2 rounded-pill" href="/login">
 			        			<i class="fa-solid fa-user">
-			        				Login
 			        			</i>
+			        			Login
 			        		</a>
 			      		</li>
 			      		<li class="nav-item ms-2">
-			        		<a class="nav-link text-white" href="/usuario">
+			        		<a class="nav-link text-white border border-2 rounded-pill" href="/usuario">
 			        			<i class="fas fa-sign-in-alt">
-			        				Sign Up
 			        			</i>
+			        			Sign Up
 			        		</a>
 			      		</li>
 		      		</c:if>
 		      		
 		      		<c:if test="${not empty usuario}">
 			      		<li class="nav-item ms-2">
-			        		<a class="nav-link text-white" href="/logout">
-			        			<i class="fa-sharp fa-solid fa-door-open">
-			        				Logout, ${usuario.nome}		   
-			        			</i>			     
+			        		<a class="nav-link text-white border border-2 rounded-pill" href="/logout">
+			        			<i class="fa-sharp fa-solid fa-door-open">	   
+			        			</i>
+			        			Logout, ${usuario.nome}				     
 			        		</a>
 			      		</li>
 		      		</c:if>

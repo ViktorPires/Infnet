@@ -37,10 +37,10 @@
 					<tr>
 						<th>Código de Registro</th>
 						<th>Serviço</th>
-						<th>Orçamento</th>
 						<th>Peça</th>
-						<th>Quantidade</th>
 						<th>Fabricante</th>
+						<th>Quantidade</th>
+						<th>Orçamento</th>
 						<th>Peça Nova?</th>
 						<th></th>
 					</tr>
@@ -50,10 +50,10 @@
 						<tr>
 							<td>${m.codigoRegistro}</td>
 							<td>${m.servico}</td>
-							<td>R$${m.orcamento}</td>
 							<td>${m.peca}</td>
-							<td>${m.quantidade}</td>
 							<td>${m.fabricante}</td>
+							<td>${m.quantidade}</td>
+							<td>R$${m.orcamento}</td>
 							<td>${m.getPecaNova()}</td>
 							<td><a class="excluir" href="/mecanica/${m.codigoRegistro}/excluir"><i class="fa-solid fa-trash"></i></a></td>
 						</tr>
@@ -62,7 +62,7 @@
 			</table>
 		</c:if>
 		
-		<a class="button btn-primary mt-3" href="/mecanica">Cadastrar</a>
+		<a class="button btn-primary" href="/mecanica">Cadastrar</a>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>

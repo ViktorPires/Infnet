@@ -36,9 +36,9 @@
 				<thead>
 					<tr>
 						<th>Código de Registro</th>
-						<th>Serviço</th>
-						<th>Orçamento</th>
+						<th>Serviço</th>			
 						<th>Material</th>
+						<th>Orçamento</th>
 						<th>Martelinho</th>
 						<th>Lanternagem</th>
 						<th>Polimento</th>
@@ -51,8 +51,8 @@
 						<tr>
 							<td>${f.codigoRegistro}</td>
 							<td>${f.servico}</td>
-							<td>R$${f.orcamento}</td>
 							<td>${f.material}</td>
+							<td>R$${f.orcamento}</td>
 							<td>${f.getMartelinho()}</td>
 							<td>${f.getLanternagem()}</td>
 							<td>${f.getPolimento()}</td>

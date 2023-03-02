@@ -13,7 +13,7 @@
 	<title>Serviço de Acessórios - Cadastro</title>
 	<style>
 		body {
-    		background-image: url("../../../resources/img/mecanica.jpg");
+    		background-image: url("../../../resources/img/acessorio.jpg");
 		}
 	</style>
 </head>
@@ -28,34 +28,34 @@
 			<div>
 				<div class="form-group">
 					<label for="servico">Serviço:</label> 
-					<input type="text" name="servico" placeholder="Descreva o serviço">
-				</div>
-				<div class="form-group">
-					<label for="orcamento">Orçamento:</label> 
-					<input type="number" step="any" name="orcamento" placeholder="Digite o valor do orçamento">
+					<input type="text" name="servico" placeholder="Descreva o serviço" required>
 				</div>
 				<div class="form-group">
 					<label for="tipo">Tipo:</label> 
-					<input type="text" name="tipo" placeholder="Descreva o tipo do acessório - Ex: Sonorização, Segurança, Lazer, etc">
+					<input type="text" name="tipo" placeholder="Descreva o tipo do acessório - Ex: Sonorização, Segurança, Lazer, etc" required>
 				</div>
 				<div class="form-group">
 					<label for="fabricante">Fabricante:</label> 
-					<input type="text" name="fabricante" placeholder="Digite o fabricante">
+					<input type="text" name="fabricante" placeholder="Digite o fabricante" required>
 				</div>
-				<div class="form-group form-check-inline">
+				<div class="form-group">
+					<label for="orcamento">Orçamento:</label> 
+					<input type="number" step="any" name="orcamento" placeholder="Valor do orçamento" required>
+				</div>
+				<div class="form-group form-check-inline mt-3">
 					<p class="form-check-inline">Acessório é original?</p>
 					<label for="sim">Sim</label> 
-					<input type="radio" id="sim" name="acessorioOriginal" value="true">
+					<input type="radio" id="sim" name="acessorioOriginal" value="true" required>
 					<label for="nao">Não</label> 
-					<input type="radio" id="nao" name="acessorioOriginal" value="false">
+					<input type="radio" id="nao" name="acessorioOriginal" value="false" required>
 				</div>
 				<br>
 				<div class="form-group form-check-inline mt-1">
 					<p class="form-check-inline">Acessório em estoque?</p>
 					<label for="sim">Sim</label> 
-					<input type="radio" id="sim" name="acessorioEstoque" value="true">
+					<input type="radio" id="sim" name="acessorioEstoque" value="true" required>
 					<label for="nao">Não</label> 
-					<input type="radio" id="nao" name="acessorioEstoque" value="false">
+					<input type="radio" id="nao" name="acessorioEstoque" value="false" required>
 				</div>
 				<button type="submit" class="btn btn-default">Cadastrar</button>
 			</div>

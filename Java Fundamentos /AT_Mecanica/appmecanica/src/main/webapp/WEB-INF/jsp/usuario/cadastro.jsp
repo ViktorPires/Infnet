@@ -28,14 +28,14 @@
 			<div>
 				<div class="form-group">
 					<label for="nome">Nome:</label> 
-					<input type="text" name="nome" placeholder="Nome do usuário">
+					<input type="text" name="nome" placeholder="Nome do usuário" required>
 				</div>
 				<div class="form-group">
 					<label for="email">E-mail:</label> 
-					<input type="email" name="email" placeholder="E-mail do usuário">
+					<input type="email" name="email" placeholder="E-mail do usuário" required>
 				</div>
 				<div class="form-group">
-					<label for="senha">Senha:</label> <input type="password" name="senha">
+					<label for="senha">Senha:</label> <input type="password" name="senha" required>
 				</div>
 				<button type="submit" class="btn btn-default">Cadastrar</button>
 			</div>

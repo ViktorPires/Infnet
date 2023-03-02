@@ -37,8 +37,9 @@
 					<tr>
 						<th>Código de Registro</th>
 						<th>Serviço</th>
-						<th>Orçamento</th>
 						<th>Tipo</th>
+						<th>Fabricante</th>
+						<th>Orçamento</th>
 						<th>Acessório Original?</th>
 						<th>Acessório em Estoque?</th>
 						<th></th>
@@ -49,8 +50,9 @@
 						<tr>
 							<td>${a.codigoRegistro}</td>
 							<td>${a.servico}</td>
-							<td>R$${a.orcamento}</td>
 							<td>${a.tipo}</td>
+							<td>${a.fabricante}</td>
+							<td>R$${a.orcamento}</td>
 							<td>${a.getAcessorioOriginal()}</td>
 							<td>${a.getAcessorioEstoque()}</td>
 							<td><a class="excluir" href="/acessorios/${a.codigoRegistro}/excluir"><i class="fa-solid fa-trash"></i></a></td>

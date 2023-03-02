@@ -28,30 +28,30 @@
 			<div>
 				<div class="form-group">
 					<label for="servico">Serviço:</label> 
-					<input type="text" name="servico" placeholder="Nome do serviço">
-				</div>
-				<div class="form-group">
-					<label for="orcamento">Orçamento:</label> 
-					<input type="number" step="any" name="orcamento" placeholder="Valor do orçamento">
+					<input type="text" name="servico" placeholder="Nome do serviço" required>
 				</div>
 				<div class="form-group">
 					<label for="peca">Peça:</label> 
-					<input type="text" name="peca" placeholder="Nome da peça">
-				</div>
-				<div class="form-group">
-					<label for="quantidade">Quantidade:</label> 
-					<input type="number" name="quantidade" placeholder="Digite a quantidade">
+					<input type="text" name="peca" placeholder="Nome da peça" required>
 				</div>
 				<div class="form-group">
 					<label for="fabricante">Fabricante:</label> 
-					<input type="text" name="fabricante" placeholder="Digite o fabricante">
+					<input type="text" name="fabricante" placeholder="Digite o fabricante" required>
 				</div>
-				<div class="form-group form-check-inline">
+				<div class="form-group">
+					<label for="quantidade">Quantidade:</label> 
+					<input type="number" name="quantidade" placeholder="Digite a quantidade" required>
+				</div>
+				<div class="form-group mt-2">
+					<label for="orcamento">Orçamento:</label> 
+					<input type="number" step="any" name="orcamento" placeholder="Valor do orçamento" required>
+				</div>
+				<div class="form-group form-check-inline mt-2">
 					<p class="form-check-inline">Peça é nova?</p>
 					<label for="sim">Sim</label> 
-					<input type="radio" id="sim" name="pecaNova" value="true">
+					<input type="radio" id="sim" name="pecaNova" value="true" required>
 					<label for="nao">Não</label> 
-					<input type="radio" id="nao" name="pecaNova" value="false">
+					<input type="radio" id="nao" name="pecaNova" value="false" required>
 				</div>
 				<button type="submit" class="btn btn-default">Cadastrar</button>
 			</div>

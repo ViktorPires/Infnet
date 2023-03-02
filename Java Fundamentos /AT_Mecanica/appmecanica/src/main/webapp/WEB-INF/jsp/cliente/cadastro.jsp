@@ -10,10 +10,10 @@
 	<link href="${pageContext.request.contextPath}/resources/css/menu.css" rel="stylesheet">
 	<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/resources/img/garage.png">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
-	<title>Serviço de Funilaria - Cadastro</title>
+	<title>Cliente - Cadastro</title>
 	<style>
 		body {
-    		background-image: url("../../../resources/img/mecanica.jpg");
+    		background-image: url("../../../resources/img/cliente.jpg");
 		}
 	</style>
 </head>
@@ -22,39 +22,29 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container">
-		<h3 class="text-center">Serviço de Funilaria - Cadastro</h3>
+		<h3 class="text-center">Cliente - Cadastro</h3>
 		<br>
-		<form action="/funilaria/incluir" method="post">
+		<form action="/cliente/incluir" method="post">
 			<div>
 				<div class="form-group">
-					<label for="servico">Serviço:</label> 
-					<input type="text" name="servico" placeholder="Descreva o serviço">
+					<label for="nome">Nome:</label> 
+					<input type="text" name="nome" placeholder="Digite o nome completo" required>
 				</div>
 				<div class="form-group">
-					<label for="orcamento">Orçamento:</label> 
-					<input type="number" step="any" name="orcamento" placeholder="Digite o valor do orçamento">
+					<label for="endereco">Endereço:</label> 
+					<input type="text" name="endereco" placeholder="Digite o endereço completo" required>
 				</div>
 				<div class="form-group">
-					<label for="tipo">Tipo:</label> 
-					<input type="text" name="tipo" placeholder="Descreva o tipo do acessório - Ex: Sonorização, Segurança, Lazer, etc">
+					<label for="telefone">Telefone:</label> 
+					<input type="text" name="telefone" placeholder="Telefone de contato" required>
 				</div>
 				<div class="form-group">
-					<label for="fabricante">Fabricante:</label> 
-					<input type="text" name="fabricante" placeholder="Digite o fabricante">
+					<label for="veiculo">Veículo:</label> 
+					<input type="text" name="veiculo" placeholder="Digite o modelo do veículo" required>
 				</div>
-				<div class="form-group form-check-inline">
-					<p>Acessório é original?</p>
-					<label for="sim">Sim</label> 
-					<input type="radio" id="sim" name="acessorioOriginal" value="true">
-					<label for="nao">Não</label> 
-					<input type="radio" id="nao" name="acessorioOriginal" value="false">
-				</div>
-					<div class="form-group form-check-inline">
-					<p>Acessório em estoque?</p>
-					<label for="sim">Sim</label> 
-					<input type="radio" id="sim" name="acessorioEstoque" value="true">
-					<label for="nao">Não</label> 
-					<input type="radio" id="nao" name="acessorioEstoque" value="false">
+				<div class="form-group mt-3">
+					<label for="anoVeiculo">Ano do Veículo:</label> 
+					<input type="number" name="anoVeiculo" required>
 				</div>
 				<button type="submit" class="btn btn-default">Cadastrar</button>
 			</div>

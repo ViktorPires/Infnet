@@ -4,13 +4,14 @@ import br.edu.infnet.appmecanica.model.exceptions.ClienteInvalidoException;
 
 public class Cliente {
 	
+	private Integer id;
 	private String nome;
 	private String endereco;
 	private String telefone;
 	private String veiculo;
 	private int anoVeiculo;
 	
-	public Cliente(String nome, String endereco, String telefone, String veiculo, int anoVeiculo) throws ClienteInvalidoException {
+	public Cliente(Integer id, String nome, String endereco, String telefone, String veiculo, int anoVeiculo) throws ClienteInvalidoException {
 		
 		if(nome == null || nome == "") {
 			throw new ClienteInvalidoException("O nome do cliente deve ser preenchido!");
@@ -32,6 +33,7 @@ public class Cliente {
 			throw new ClienteInvalidoException("O ano do veículo não pode ser zero!");
 		}
 		
+		this.id = id;
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
@@ -54,6 +56,14 @@ public class Cliente {
 		sb.append(anoVeiculo);
 		
 		return sb.toString();
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	public String getNome() {

@@ -27,7 +27,9 @@ public class AcessoController {
 		
 		Usuario user = new Usuario(email, senha);
 		
-		if(AcessoRepository.autenticar(user) != null) {
+		user = AcessoRepository.autenticar(user);
+		
+		if(user != null) {
 			model.addAttribute("usuario", user);
 			
 			return "redirect:/home";
