@@ -4,15 +4,18 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import br.edu.infnet.appmecanica.model.domain.Cliente;
 
+@Repository
 public class ClienteRepository {
 	
 	private static Integer id = 1;
 	
 	private static Map<Integer, Cliente> mapaCliente = new HashMap<Integer, Cliente>();
 	
-	public static boolean incluir(Cliente cliente) {
+	public boolean incluir(Cliente cliente) {
 		
 		cliente.setId(id++);
 		
@@ -24,11 +27,11 @@ public class ClienteRepository {
 		}
 	}
 	
-	public static Cliente excluir(Integer chave) {
+	public Cliente excluir(Integer chave) {
 		return mapaCliente.remove(chave);
 	}
 	
-	public static Collection<Cliente> obterLista() {
+	public Collection<Cliente> obterLista() {
 		return mapaCliente.values();
 	}
 }

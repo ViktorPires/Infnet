@@ -11,7 +11,7 @@ public class Cliente {
 	private String veiculo;
 	private int anoVeiculo;
 	
-	public Cliente(Integer id, String nome, String endereco, String telefone, String veiculo, int anoVeiculo) throws ClienteInvalidoException {
+	public Cliente(String nome, String endereco, String telefone, String veiculo, int anoVeiculo) throws ClienteInvalidoException {
 		
 		if(nome == null || nome == "") {
 			throw new ClienteInvalidoException("O nome do cliente deve ser preenchido!");
@@ -33,7 +33,6 @@ public class Cliente {
 			throw new ClienteInvalidoException("O ano do veículo não pode ser zero!");
 		}
 		
-		this.id = id;
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
