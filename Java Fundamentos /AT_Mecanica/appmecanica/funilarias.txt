@@ -1,0 +1,3 @@
+Pintura da porta;145;Tinta Azul;false;false;false;true
+Polimento do Veículo;100;Cera, Lixa, Pano Microfibra, Massa e Algodão;false;false;true;false
+Lanternagem e pintura;3000;Tasso duplo e Tinta Vermelha;false;true;false;true

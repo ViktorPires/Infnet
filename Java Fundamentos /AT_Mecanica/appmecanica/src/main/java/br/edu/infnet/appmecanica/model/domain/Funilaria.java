@@ -12,8 +12,8 @@ public class Funilaria extends Servico {
 	private boolean polimento;
 	private boolean pintura;
 	
-	public Funilaria(String servico, float orcamento, Integer codigoRegistro, String material, boolean martelinho, boolean lanternagem, boolean polimento, boolean pintura) throws OrcamentoZeradoException, FunilariaInvalidoException {
-		super(servico, orcamento, codigoRegistro);
+	public Funilaria(String servico, float orcamento, String material, boolean martelinho, boolean lanternagem, boolean polimento, boolean pintura) throws OrcamentoZeradoException, FunilariaInvalidoException {
+		super(servico, orcamento);
 		this.material = material;
 		this.martelinho = martelinho;
 		this.lanternagem = lanternagem;

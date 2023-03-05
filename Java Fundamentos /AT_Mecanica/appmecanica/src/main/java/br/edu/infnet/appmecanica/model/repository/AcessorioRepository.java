@@ -4,15 +4,18 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import br.edu.infnet.appmecanica.model.domain.Acessorio;
 
+@Repository
 public class AcessorioRepository {
 	
 	private static Integer codigoRegistro = 1;
 	
 	private static Map<Integer, Acessorio> mapaAcessorio = new HashMap<Integer, Acessorio>();
 	
-	public static boolean incluir(Acessorio acessorio) {
+	public boolean incluir(Acessorio acessorio) {
 		
 		acessorio.setCodigoRegistro(codigoRegistro++);
 		
@@ -24,11 +27,11 @@ public class AcessorioRepository {
 		}
 	}
 	
-	public static Acessorio excluir(Integer chave) {
+	public Acessorio excluir(Integer chave) {
 		return mapaAcessorio.remove(chave);
 	}
 	
-	public static Collection<Acessorio> obterLista() {
+	public Collection<Acessorio> obterLista() {
 		return mapaAcessorio.values();
 	}
 }

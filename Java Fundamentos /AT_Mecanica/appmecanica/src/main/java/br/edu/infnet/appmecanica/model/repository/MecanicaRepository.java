@@ -4,15 +4,18 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 import br.edu.infnet.appmecanica.model.domain.Mecanica;
 
+@Repository
 public class MecanicaRepository {
 	
 	private static Integer codigoRegistro = 1;
 	
 	private static Map<Integer, Mecanica> mapaMecanica = new HashMap<Integer, Mecanica>();
 	
-	public static boolean incluir(Mecanica mecanica) {
+	public boolean incluir(Mecanica mecanica) {
 		
 		mecanica.setCodigoRegistro(codigoRegistro++);
 		
@@ -24,11 +27,11 @@ public class MecanicaRepository {
 		}
 	}
 	
-	public static Mecanica excluir(Integer chave) {
+	public Mecanica excluir(Integer chave) {
 		return mapaMecanica.remove(chave);
 	}
 	
-	public static Collection<Mecanica> obterLista() {
+	public Collection<Mecanica> obterLista() {
 		return mapaMecanica.values();
 	}
 }

@@ -11,8 +11,8 @@ public class Acessorio extends Servico {
 	private boolean acessorioOriginal;
 	private boolean acessorioEstoque;
 	
-	public Acessorio(String servico, float orcamento, Integer codigoRegistro, String tipo, String fabricante, boolean acessorioOriginal, boolean acessorioEstoque) throws OrcamentoZeradoException {
-		super(servico, orcamento, codigoRegistro);
+	public Acessorio(String servico, float orcamento, String tipo, String fabricante, boolean acessorioOriginal, boolean acessorioEstoque) throws OrcamentoZeradoException {
+		super(servico, orcamento);
 		this.tipo = tipo;
 		this.fabricante = fabricante;
 		this.acessorioOriginal = acessorioOriginal;

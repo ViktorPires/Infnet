@@ -10,7 +10,7 @@ public class MecanicaTest {
 		
 		
 		try {
-			Mecanica mecanica1 = new Mecanica("Adicionar Turbina", 2500, 6546, "Turbo");
+			Mecanica mecanica1 = new Mecanica("Adicionar Turbina", 2500, "Turbo");
 			mecanica1.setFabricante("Volkswagen");
 			mecanica1.setQuantidade(1);
 			mecanica1.setPecaNova(false);
@@ -21,7 +21,7 @@ public class MecanicaTest {
 		}
 		
 		try {
-			Mecanica mecanica2 = new Mecanica("Trocar Pneu", 300, 6547, "Pneu");
+			Mecanica mecanica2 = new Mecanica("Trocar Pneu", 300, "Pneu");
 			mecanica2.setFabricante("Volkswagen");
 			mecanica2.setQuantidade(4);
 			mecanica2.setPecaNova(true);
@@ -32,7 +32,7 @@ public class MecanicaTest {
 		}
 		
 		try {	
-			Mecanica mecanica3 = new Mecanica("Troca do Cárter", -2800, 6548, "Cárter");
+			Mecanica mecanica3 = new Mecanica("Troca do Cárter", 2800, "Cárter");
 			mecanica3.setFabricante("DHF");
 			mecanica3.setPecaNova(false);
 			mecanica3.setQuantidade(1);
@@ -43,7 +43,7 @@ public class MecanicaTest {
 		}
 		
 		try {	
-			Mecanica mecanica4 = new Mecanica("Troca do Alternador", 1200, 6549, "Alternador");
+			Mecanica mecanica4 = new Mecanica("Troca do Alternador", 1200, "Alternador");
 			mecanica4.setFabricante("Volkswagen");
 			mecanica4.setQuantidade(0);
 			mecanica4.setPecaNova(true);
@@ -54,7 +54,7 @@ public class MecanicaTest {
 		}
 		
 		try {	
-			Mecanica mecanica5 = new Mecanica("Troca de Bateria", 500, 6550, "Bateria");
+			Mecanica mecanica5 = new Mecanica("Troca de Bateria", 500, "Bateria");
 			mecanica5.setFabricante("Moura");
 			mecanica5.setQuantidade(-1);
 			mecanica5.setPecaNova(true);
@@ -65,7 +65,7 @@ public class MecanicaTest {
 		}
 		
 		try {	
-			Mecanica mecanica6 = new Mecanica("Troca de Óleo", 0, 6551, "Óleo de Motor");
+			Mecanica mecanica6 = new Mecanica("Troca de Óleo", 0, "Óleo de Motor");
 			mecanica6.setFabricante("Castrol");
 			mecanica6.setQuantidade(1);
 			mecanica6.setPecaNova(true);

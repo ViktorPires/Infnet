@@ -1,5 +1,6 @@
 package br.edu.infnet.appmecanica.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,11 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.appmecanica.model.domain.Funilaria;
-import br.edu.infnet.appmecanica.model.repository.FunilariaRepository;
+import br.edu.infnet.appmecanica.model.service.FunilariaService;
 
 
 @Controller
-public class FunilariaController {	
+public class FunilariaController {
+	
+	@Autowired
+	private FunilariaService funilariaService;
 	
 	private String msg;
 	
@@ -23,7 +27,7 @@ public class FunilariaController {
 	@GetMapping(value = "/funilaria/lista")
 	public String telaLista(Model model) {
 		
-		model.addAttribute("funilarias", FunilariaRepository.obterLista());
+		model.addAttribute("funilarias", funilariaService.obterLista());
 		
 		model.addAttribute("mensagem", msg);
 		
@@ -35,7 +39,7 @@ public class FunilariaController {
 	@PostMapping(value = "/funilaria/incluir")
 	public String incluir(Funilaria funilaria) {
 		
-		FunilariaRepository.incluir(funilaria);
+		funilariaService.incluir(funilaria);
 		
 		msg = "A inclusão do serviço de funilaria " + funilaria.getServico() + " foi realizada com sucesso!";
 		
@@ -45,7 +49,7 @@ public class FunilariaController {
 	@GetMapping(value = "/funilaria/{codigoRegistro}/excluir")
 	public String excluir(@PathVariable Integer codigoRegistro) {
 		
-		Funilaria funilaria = FunilariaRepository.excluir(codigoRegistro);
+		Funilaria funilaria = funilariaService.excluir(codigoRegistro);
 		
 		msg = "A exclusão do serviço de funilaria " + funilaria.getServico() + " foi realizada com sucesso!";
 		

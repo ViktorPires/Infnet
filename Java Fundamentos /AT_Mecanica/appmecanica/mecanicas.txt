@@ -1,0 +1,3 @@
+Adicionar Turbina;2500;Turbo;1;Volkswagen;true
+Trocar Pneu;300;Pneu;4;Pirelli;true
+Troca do Cárter;2800;Cárter;1;DHF;false

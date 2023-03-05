@@ -62,7 +62,7 @@ public class ArquivoTest {
 						break;
 					case "M":
 						try {
-							Mecanica mecanica = new Mecanica(campos[1], Float.valueOf(campos[2]), Integer.valueOf(campos[3]), campos[4]);
+							Mecanica mecanica = new Mecanica(campos[1], Float.valueOf(campos[2]), campos[4]);
 							mecanica.setFabricante(campos[6]);
 							mecanica.setQuantidade(Integer.valueOf(campos[5]));
 							mecanica.setPecaNova(Boolean.valueOf(campos[7]));
@@ -75,7 +75,7 @@ public class ArquivoTest {
 						break;
 					case "F":
 						try {
-							Funilaria funilaria = new Funilaria(campos[1], Float.valueOf(campos[2]), Integer.valueOf(campos[3]), campos[4], Boolean.valueOf(campos[5]), Boolean.valueOf(campos[6]), Boolean.valueOf(campos[7]), Boolean.valueOf(campos[8]));
+							Funilaria funilaria = new Funilaria(campos[1], Float.valueOf(campos[2]), campos[4], Boolean.valueOf(campos[5]), Boolean.valueOf(campos[6]), Boolean.valueOf(campos[7]), Boolean.valueOf(campos[8]));
 							
 							servicosATDM.add(funilaria);
 						} catch (OrcamentoZeradoException | FunilariaInvalidoException e) {
@@ -84,7 +84,7 @@ public class ArquivoTest {
 						break;
 					case "AC":
 						try {
-							Acessorio acessorio = new Acessorio(campos[1], Float.valueOf(campos[2]), Integer.valueOf(campos[3]), campos[4], campos[5], Boolean.valueOf(campos[6]), Boolean.valueOf(campos[7]));
+							Acessorio acessorio = new Acessorio(campos[1], Float.valueOf(campos[2]), campos[4], campos[5], Boolean.valueOf(campos[6]), Boolean.valueOf(campos[7]));
 							
 							servicosATDM.add(acessorio);
 						} catch (OrcamentoZeradoException e) {

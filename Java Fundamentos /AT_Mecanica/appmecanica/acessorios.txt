@@ -1,0 +1,3 @@
+Adicionar Película;1500;Segurança;3M;true;true
+Instalar Caixas de Som;2750;Sonorização;JBL;true;true
+Porta Bicicletas;500;Lazer;Transbikes;false;false

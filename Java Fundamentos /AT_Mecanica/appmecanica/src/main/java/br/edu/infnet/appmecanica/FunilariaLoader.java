@@ -10,20 +10,20 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 
-import br.edu.infnet.appmecanica.model.domain.Cliente;
-import br.edu.infnet.appmecanica.model.service.ClienteService;
+import br.edu.infnet.appmecanica.model.domain.Funilaria;
+import br.edu.infnet.appmecanica.model.service.FunilariaService;
 
 @Component
-public class ClienteLoader implements ApplicationRunner {
+public class FunilariaLoader implements ApplicationRunner {
 	
 	@Autowired
-	private ClienteService clienteService;
+	private FunilariaService funilariaService;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
 		try {
-			String arq = "clientes.txt";
+			String arq = "funilarias.txt";
 			
 			try {
 				FileReader fileR = new FileReader(arq);
@@ -37,17 +37,19 @@ public class ClienteLoader implements ApplicationRunner {
 					
 					campos = linha.split(";");
 					
-					Cliente cliente = new Cliente(
-							campos[0], 
-							campos[1], 
-							campos[2], 
-							campos[3], 
-							Integer.valueOf(campos[4])
+					Funilaria funilaria = new Funilaria(
+							campos[0],
+							Float.valueOf(campos[1]),
+							campos[2],
+							Boolean.valueOf(campos[3]), 
+							Boolean.valueOf(campos[4]), 
+							Boolean.valueOf(campos[5]), 
+							Boolean.valueOf(campos[6])
 							);
 					
-					clienteService.incluir(cliente);
+					funilariaService.incluir(funilaria);
 					
-					System.out.println("A criação e inclusão do cliente " + cliente.getNome() + " foi realizada com sucesso!");
+					System.out.println("A criação e inclusão do serviço de funilaria " + funilaria.getServico() + " foi realizada com sucesso!");
 					
 					linha = leitura.readLine();
 				}

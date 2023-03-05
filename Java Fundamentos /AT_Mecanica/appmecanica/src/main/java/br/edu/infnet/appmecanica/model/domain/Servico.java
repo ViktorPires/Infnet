@@ -11,7 +11,7 @@ public abstract class Servico {
 	private Integer codigoRegistro;
 	
 
-	public Servico(String servico, float orcamento, Integer codigoRegistro) throws OrcamentoZeradoException {
+	public Servico(String servico, float orcamento) throws OrcamentoZeradoException {
 		
 		if(orcamento == 0) {
 			throw new OrcamentoZeradoException("O orçamento não pode estar zerado!");
@@ -23,7 +23,6 @@ public abstract class Servico {
 		
 		this.servico = servico;
 		this.orcamento = orcamento;
-		this.codigoRegistro = codigoRegistro;
 	}
 	
 	public abstract float calcularValorOrcamento() throws QuantidadePecaInvalidoException, AcessorioEmFaltaException;
