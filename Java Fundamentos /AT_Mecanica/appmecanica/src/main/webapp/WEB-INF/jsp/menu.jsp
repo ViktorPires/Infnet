@@ -22,7 +22,7 @@
 		          <a class="nav-link text-white" href="/cliente/lista">Cliente</a>
 		        </li>
 		         <li class="nav-item ms-2">
-		          <a class="nav-link text-white" href="#">Atendimento</a>
+		          <a class="nav-link text-white" href="/atendimentos/lista">Atendimento</a>
 		        </li>
 		        <li class="nav-item dropdown ms-2">
 		          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

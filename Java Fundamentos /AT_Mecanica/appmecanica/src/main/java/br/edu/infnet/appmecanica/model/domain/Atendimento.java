@@ -10,11 +10,29 @@ import br.edu.infnet.appmecanica.model.exceptions.AtendimentoSemServicoException
 
 public class Atendimento {
 	
+	private Integer id;
 	private String descricao;
 	private LocalDate data;
 	private String mecanicoResponsavel;
 	private Cliente cliente;
 	private List<Servico> servicos;
+	
+	public Atendimento(Cliente cliente, List<Servico> servicos, String descricao, String mecanicoResponsavel) throws AtendimentoSemClienteException, AtendimentoSemServicoException {
+		
+		if(cliente == null) {
+			throw new AtendimentoSemClienteException("Não existe um cliente associado ao atendimento!");
+		}
+		
+		if(servicos == null) {
+			throw new AtendimentoSemServicoException("Não existe nenhum serviço associado ao atendimento!");
+		}
+		
+		this.cliente = cliente;
+		this.servicos = servicos;
+		this.descricao = descricao;
+		this.mecanicoResponsavel = mecanicoResponsavel;
+		data = LocalDate.now();
+	}
 	
 	public Atendimento(Cliente cliente, List<Servico> servicos) throws AtendimentoSemClienteException, AtendimentoSemServicoException {
 		
@@ -67,6 +85,14 @@ public class Atendimento {
 				mecanicoResponsavel);
 	}
 	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getDescricao() {
 		return descricao;
 	}
