@@ -39,6 +39,8 @@
 						<th>Nome</th>
 						<th>E-mail</th>
 						<th>Senha</th>
+						<th>Clientes</th>
+						<th>Quantidade</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -49,6 +51,12 @@
 							<td>${u.nome}</td>
 							<td>${u.email}</td>
 							<td>${u.senha}</td>
+							<td>
+								<c:forEach var="cliente" items="${u.clientes}">
+									${cliente.nome} <br>
+								</c:forEach>
+							</td>
+							<td>${u.clientes.size()}</td>
 							<td><a class="excluir" href="/usuario/${u.id}/excluir"><i class="fa-solid fa-trash"></i></a></td>
 						</tr>
 					</c:forEach>

@@ -41,6 +41,7 @@
 						<th>Telefone</th>
 						<th>Veículo</th>
 						<th>Ano do Veículo</th>
+						<th>Usuário</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -53,6 +54,7 @@
 							<td>${c.telefone}</td>
 							<td>${c.veiculo}</td>
 							<td>${c.anoVeiculo}</td>
+							<td>${c.usuario.nome}</td>
 							<td><a class="excluir" href="/cliente/${c.id}/excluir"><i class="fa-solid fa-trash"></i></a></td>
 						</tr>
 					</c:forEach>

@@ -12,7 +12,7 @@ import br.edu.infnet.appmecanica.model.service.UsuarioService;
 
 
 @Controller
-public class UsuarioContoller {	
+public class UsuarioController {	
 	
 	@Autowired
 	private UsuarioService usuarioService;
@@ -49,9 +49,9 @@ public class UsuarioContoller {
 	@GetMapping(value = "/usuario/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 		
-		Usuario usuario = usuarioService.excluir(id);
+		usuarioService.excluir(id);
 		
-		msg = "A exclusão do usuário " + usuario.getNome() + " foi realizada com sucesso!";
+		msg = "A exclusão do usuário " + id + " foi realizada com sucesso!";
 		
 		return "redirect:/usuario/lista";
 	}
