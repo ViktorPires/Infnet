@@ -6,23 +6,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appmecanica.model.domain.Mecanica;
-import br.edu.infnet.appmecanica.model.repository.MecanicaRepository;
+import br.edu.infnet.appmecanica.model.domain.Usuario;
+import br.edu.infnet.appmecanica.model.repository.IMecanicaRepository;
 
 @Service
 public class MecanicaService {
 	
 	@Autowired
-	private MecanicaRepository mecanicaRepository;
+	private IMecanicaRepository mecanicaRepository;
 
-	public boolean incluir(Mecanica mecanica) {
-		return mecanicaRepository.incluir(mecanica);
+	public Mecanica incluir(Mecanica mecanica) {
+		return mecanicaRepository.save(mecanica);
 	}
 	
-	public Mecanica excluir(Integer key) {
-		return mecanicaRepository.excluir(key);
+	public void excluir(Integer key) {
+		mecanicaRepository.deleteById(key);
 	}
 	
 	public Collection<Mecanica> obterLista() {
-		return mecanicaRepository.obterLista();
+		return (Collection<Mecanica>) mecanicaRepository.findAll();
+	}
+	
+	public Collection<Mecanica> obterLista(Usuario usuario) {
+		return (Collection<Mecanica>) mecanicaRepository.obterLista(usuario.getId());
+	}
+	
+	public Mecanica obterPorId(Integer id) {
+		return mecanicaRepository.findById(id).orElse(null);
 	}
 }

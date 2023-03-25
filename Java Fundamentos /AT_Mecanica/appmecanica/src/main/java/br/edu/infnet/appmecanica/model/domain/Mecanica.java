@@ -1,9 +1,14 @@
 package br.edu.infnet.appmecanica.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.appmecanica.model.auxiliar.Constante;
 import br.edu.infnet.appmecanica.model.exceptions.OrcamentoZeradoException;
 import br.edu.infnet.appmecanica.model.exceptions.QuantidadePecaInvalidoException;
 
+@Entity
+@Table(name = "TMecanica")
 public class Mecanica extends Servico {
 
 	private String peca;
@@ -11,16 +16,19 @@ public class Mecanica extends Servico {
 	private String fabricante;
 	private boolean pecaNova;
 	
-	public Mecanica(String servico, float orcamento, String peca, int quantidade, String fabricante, boolean pecaNova) throws OrcamentoZeradoException {
-		super(servico, orcamento);
+	public Mecanica() {
+	}
+	
+	public Mecanica(String servico, float orcamento, String peca, int quantidade, String fabricante, boolean pecaNova, int codigoRegistro) throws OrcamentoZeradoException {
+		super(servico, orcamento, codigoRegistro);
 		this.peca = peca;
 		this.quantidade = quantidade;
 		this.fabricante = fabricante;
 		this.pecaNova = pecaNova;
 	}	
 	
-	public Mecanica(String servico, float orcamento, String peca) throws OrcamentoZeradoException {
-		super(servico, orcamento);
+	public Mecanica(String servico, float orcamento, int codigoRegistro, String peca) throws OrcamentoZeradoException {
+		super(servico, orcamento, codigoRegistro);
 		this.peca = peca;
 	}	
 	

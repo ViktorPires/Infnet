@@ -35,6 +35,7 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
+						<th>Id</th>
 						<th>Código de Registro</th>
 						<th>Serviço</th>			
 						<th>Material</th>
@@ -49,6 +50,7 @@
 				<tbody>
 					<c:forEach var="f" items="${funilarias}">
 						<tr>
+							<td>${f.id}</td>
 							<td>${f.codigoRegistro}</td>
 							<td>${f.servico}</td>
 							<td>${f.material}</td>
@@ -57,7 +59,7 @@
 							<td>${f.getLanternagem()}</td>
 							<td>${f.getPolimento()}</td>
 							<td>${f.getPintura()}</td>
-							<td><a class="excluir" href="/funilaria/${f.codigoRegistro}/excluir"><i class="fa-solid fa-trash"></i></a></td>
+							<td><a class="excluir" href="/funilaria/${f.id}/excluir"><i class="fa-solid fa-trash"></i></a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

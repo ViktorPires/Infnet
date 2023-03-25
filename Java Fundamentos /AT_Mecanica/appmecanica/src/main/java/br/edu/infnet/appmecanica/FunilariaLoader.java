@@ -7,12 +7,15 @@ import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 
 import br.edu.infnet.appmecanica.model.domain.Funilaria;
+import br.edu.infnet.appmecanica.model.domain.Usuario;
 import br.edu.infnet.appmecanica.model.service.FunilariaService;
 
+@Order(4)
 @Component
 public class FunilariaLoader implements ApplicationRunner {
 	
@@ -37,6 +40,9 @@ public class FunilariaLoader implements ApplicationRunner {
 					
 					campos = linha.split(";");
 					
+					Usuario usuarioAdmin = new Usuario();
+					usuarioAdmin.setId(1);
+					
 					Funilaria funilaria = new Funilaria(
 							campos[0],
 							Float.valueOf(campos[1]),
@@ -44,8 +50,11 @@ public class FunilariaLoader implements ApplicationRunner {
 							Boolean.valueOf(campos[3]), 
 							Boolean.valueOf(campos[4]), 
 							Boolean.valueOf(campos[5]), 
-							Boolean.valueOf(campos[6])
+							Boolean.valueOf(campos[6]),
+							Integer.valueOf(campos[7])
 							);
+					
+					funilaria.setUsuario(usuarioAdmin);
 					
 					funilariaService.incluir(funilaria);
 					
@@ -56,6 +65,16 @@ public class FunilariaLoader implements ApplicationRunner {
 			
 				leitura.close();
 				fileR.close();
+				
+				System.out.println("Listagem de Funilarias:");
+				for(Funilaria funilaria : funilariaService.obterLista()) {
+					System.out.printf("%d - %s - %s\n",
+							funilaria.getId(),
+							funilaria.getServico(),
+							funilaria.getCodigoRegistro(),
+							funilaria.getOrcamento()
+					);
+				}
 			} catch (IOException e) {
 				System.out.println("[ERRO] " + e.getMessage());
 			}

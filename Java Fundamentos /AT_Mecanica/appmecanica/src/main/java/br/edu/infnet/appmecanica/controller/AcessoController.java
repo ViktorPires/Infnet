@@ -12,7 +12,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.ui.Model;
 
 import br.edu.infnet.appmecanica.model.domain.Usuario;
-import br.edu.infnet.appmecanica.model.repository.AcessoRepository;
 import br.edu.infnet.appmecanica.model.service.UsuarioService;
 
 @Controller

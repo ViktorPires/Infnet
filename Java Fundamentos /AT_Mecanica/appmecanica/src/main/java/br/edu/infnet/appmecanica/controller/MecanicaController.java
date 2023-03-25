@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appmecanica.model.domain.Mecanica;
+import br.edu.infnet.appmecanica.model.domain.Usuario;
 import br.edu.infnet.appmecanica.model.service.MecanicaService;
 
 
@@ -25,9 +27,9 @@ public class MecanicaController {
 	}
 	
 	@GetMapping(value = "/mecanica/lista")
-	public String telaLista(Model model) {
+	public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
 		
-		model.addAttribute("mecanicas", mecanicaService.obterLista());
+		model.addAttribute("mecanicas", mecanicaService.obterLista(usuario));
 		
 		model.addAttribute("mensagem", msg);
 		
@@ -37,7 +39,9 @@ public class MecanicaController {
 	}
 	
 	@PostMapping(value = "/mecanica/incluir")
-	public String incluir(Mecanica mecanica) {
+	public String incluir(Mecanica mecanica, @SessionAttribute("usuario") Usuario usuario) {
+		
+		mecanica.setUsuario(usuario);
 		
 		mecanicaService.incluir(mecanica);
 		
@@ -46,10 +50,12 @@ public class MecanicaController {
 		return "redirect:/mecanica/lista";
 	}
 	
-	@GetMapping(value = "/mecanica/{codigoRegistro}/excluir")
-	public String excluir(@PathVariable Integer codigoRegistro) {
+	@GetMapping(value = "/mecanica/{id}/excluir")
+	public String excluir(@PathVariable Integer id) {
 		
-		Mecanica mecanica = mecanicaService.excluir(codigoRegistro);
+		Mecanica mecanica = mecanicaService.obterPorId(id);
+		
+		mecanicaService.excluir(id);
 		
 		msg = "A exclusão do serviço de mecânica " + mecanica.getServico() + " foi realizada com sucesso!";
 		

@@ -9,18 +9,18 @@ import org.springframework.stereotype.Repository;
 import br.edu.infnet.appmecanica.model.domain.Servico;
 
 @Repository
-public class ServicoRepository {
+public class OldServicoRepository {
 	
-	private static Integer codigoRegistro = 1;
+	private static Integer id = 1;
 	
 	private static Map<Integer, Servico> mapaServico = new HashMap<Integer, Servico>();
 	
 	public boolean incluir(Servico servico) {
 		
-		servico.setCodigoRegistro(codigoRegistro++);
+		servico.setId(id++);
 		
 		try {
-			mapaServico.put(servico.getCodigoRegistro(), servico);
+			mapaServico.put(servico.getId(), servico);
 			return true;
 		} catch (Exception e) {
 			return false;

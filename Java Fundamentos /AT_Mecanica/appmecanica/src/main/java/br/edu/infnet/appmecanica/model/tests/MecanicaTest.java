@@ -10,7 +10,7 @@ public class MecanicaTest {
 		
 		
 		try {
-			Mecanica mecanica1 = new Mecanica("Adicionar Turbina", 2500, "Turbo");
+			Mecanica mecanica1 = new Mecanica("Adicionar Turbina", 2500, 334265, "Turbo");
 			mecanica1.setFabricante("Volkswagen");
 			mecanica1.setQuantidade(1);
 			mecanica1.setPecaNova(false);
@@ -21,8 +21,7 @@ public class MecanicaTest {
 		}
 		
 		try {
-			Mecanica mecanica2 = new Mecanica("Trocar Pneu", 300, "Pneu");
-			mecanica2.setFabricante("Volkswagen");
+			Mecanica mecanica2 = new Mecanica("Trocar Pneu", 300, 269918, "Pneu");
 			mecanica2.setQuantidade(4);
 			mecanica2.setPecaNova(true);
 			System.out.println("Orçamento: R$" + mecanica2.calcularValorOrcamento());
@@ -32,7 +31,7 @@ public class MecanicaTest {
 		}
 		
 		try {	
-			Mecanica mecanica3 = new Mecanica("Troca do Cárter", 2800, "Cárter");
+			Mecanica mecanica3 = new Mecanica("Troca do Cárter", 2800, 241013, "Cárter");
 			mecanica3.setFabricante("DHF");
 			mecanica3.setPecaNova(false);
 			mecanica3.setQuantidade(1);
@@ -43,7 +42,7 @@ public class MecanicaTest {
 		}
 		
 		try {	
-			Mecanica mecanica4 = new Mecanica("Troca do Alternador", 1200, "Alternador");
+			Mecanica mecanica4 = new Mecanica("Troca do Alternador", 1200, 257893, "Alternador");
 			mecanica4.setFabricante("Volkswagen");
 			mecanica4.setQuantidade(0);
 			mecanica4.setPecaNova(true);
@@ -54,7 +53,7 @@ public class MecanicaTest {
 		}
 		
 		try {	
-			Mecanica mecanica5 = new Mecanica("Troca de Bateria", 500, "Bateria");
+			Mecanica mecanica5 = new Mecanica("Troca de Bateria", 500, 99631, "Bateria");
 			mecanica5.setFabricante("Moura");
 			mecanica5.setQuantidade(-1);
 			mecanica5.setPecaNova(true);
@@ -65,7 +64,7 @@ public class MecanicaTest {
 		}
 		
 		try {	
-			Mecanica mecanica6 = new Mecanica("Troca de Óleo", 0, "Óleo de Motor");
+			Mecanica mecanica6 = new Mecanica("Troca de Óleo", 0, 618322, "Óleo de Motor");
 			mecanica6.setFabricante("Castrol");
 			mecanica6.setQuantidade(1);
 			mecanica6.setPecaNova(true);

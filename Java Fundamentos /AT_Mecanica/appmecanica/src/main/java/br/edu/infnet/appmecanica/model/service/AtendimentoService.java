@@ -6,23 +6,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appmecanica.model.domain.Atendimento;
-import br.edu.infnet.appmecanica.model.repository.AtendimentoRepository;
+import br.edu.infnet.appmecanica.model.domain.Mecanica;
+import br.edu.infnet.appmecanica.model.domain.Usuario;
+import br.edu.infnet.appmecanica.model.repository.IAtendimentoRepository;
 
 @Service
 public class AtendimentoService {
 	
 	@Autowired
-	private AtendimentoRepository atendimentoRepository;
+	private IAtendimentoRepository atendimentoRepository;
 
-	public boolean incluir(Atendimento atendimento) {
-		return atendimentoRepository.incluir(atendimento);
+	public Atendimento incluir(Atendimento atendimento) {
+		return atendimentoRepository.save(atendimento);
 	}
 	
-	public Atendimento excluir(Integer key) {
-		return atendimentoRepository.excluir(key);
+	public void excluir(Integer key) {
+		atendimentoRepository.deleteById(key);
 	}
 	
 	public Collection<Atendimento> obterLista() {
-		return atendimentoRepository.obterLista();
+		return (Collection<Atendimento>) atendimentoRepository.findAll();
+	}
+	
+	public Collection<Atendimento> obterLista(Usuario usuario) {
+		return (Collection<Atendimento>) atendimentoRepository.obterLista(usuario.getId());
+	}
+	
+	public Atendimento obterPorId(Integer id) {
+		return atendimentoRepository.findById(id).orElse(null);
 	}
 }

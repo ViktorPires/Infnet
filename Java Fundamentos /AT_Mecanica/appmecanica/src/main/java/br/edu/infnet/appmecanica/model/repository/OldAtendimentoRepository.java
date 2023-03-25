@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import br.edu.infnet.appmecanica.model.domain.Atendimento;
 
 @Repository
-public class AtendimentoRepository {
+public class OldAtendimentoRepository {
 	
 	private static Integer id = 1;
 	

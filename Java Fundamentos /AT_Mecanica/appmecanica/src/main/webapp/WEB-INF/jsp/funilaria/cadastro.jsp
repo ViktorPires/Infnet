@@ -31,6 +31,10 @@
 					<input type="text" name="servico" placeholder="Descreva o serviço" required>
 				</div>
 				<div class="form-group">
+					<label for="codigoRegistro">Código de Registro do Veículo:</label> 
+					<input type="number" name="codigoRegistro" placeholder="Digite o código númerico de registro do veículo" required>
+				</div>
+				<div class="form-group">
 					<label for="material">Material:</label> 
 					<input type="text" name="material" placeholder="Descreva os materiais utilizados" required>
 				</div>

@@ -9,18 +9,18 @@ import org.springframework.stereotype.Repository;
 import br.edu.infnet.appmecanica.model.domain.Mecanica;
 
 @Repository
-public class MecanicaRepository {
+public class OldMecanicaRepository {
 	
-	private static Integer codigoRegistro = 1;
+	private static Integer id = 1;
 	
 	private static Map<Integer, Mecanica> mapaMecanica = new HashMap<Integer, Mecanica>();
 	
 	public boolean incluir(Mecanica mecanica) {
 		
-		mecanica.setCodigoRegistro(codigoRegistro++);
+		mecanica.setId(id++);
 		
 		try {
-			mapaMecanica.put(mecanica.getCodigoRegistro(), mecanica);
+			mapaMecanica.put(mecanica.getId(), mecanica);
 			return true;
 		} catch (Exception e) {
 			return false;

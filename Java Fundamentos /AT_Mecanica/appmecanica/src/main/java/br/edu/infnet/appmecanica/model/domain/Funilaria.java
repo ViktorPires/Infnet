@@ -1,9 +1,14 @@
 package br.edu.infnet.appmecanica.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.appmecanica.model.auxiliar.Constante;
 import br.edu.infnet.appmecanica.model.exceptions.OrcamentoZeradoException;
 import br.edu.infnet.appmecanica.model.exceptions.FunilariaInvalidoException;
 
+@Entity
+@Table(name = "TFunilaria")
 public class Funilaria extends Servico {
 
 	private String material;
@@ -11,6 +16,23 @@ public class Funilaria extends Servico {
 	private boolean lanternagem;
 	private boolean polimento;
 	private boolean pintura;
+	
+	public Funilaria() {
+		
+	}
+	
+	public Funilaria(String servico, float orcamento, String material, boolean martelinho, boolean lanternagem, boolean polimento, boolean pintura, int codigoRegistro) throws OrcamentoZeradoException, FunilariaInvalidoException {
+		super(servico, orcamento, codigoRegistro);
+		this.material = material;
+		this.martelinho = martelinho;
+		this.lanternagem = lanternagem;
+		this.polimento = polimento;
+		this.pintura = pintura;
+		
+		if(martelinho == false && lanternagem == false && polimento == false && pintura == false) {
+			throw new FunilariaInvalidoException("É necessário definir ao menos um tipo de serviço de funilaria!");
+		}
+	}
 	
 	public Funilaria(String servico, float orcamento, String material, boolean martelinho, boolean lanternagem, boolean polimento, boolean pintura) throws OrcamentoZeradoException, FunilariaInvalidoException {
 		super(servico, orcamento);

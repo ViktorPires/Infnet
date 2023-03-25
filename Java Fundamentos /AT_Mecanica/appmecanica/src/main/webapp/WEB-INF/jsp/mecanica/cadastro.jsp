@@ -43,6 +43,10 @@
 					<input type="number" name="quantidade" placeholder="Digite a quantidade" required>
 				</div>
 				<div class="form-group mt-2">
+					<label for="codigoRegistro">Código de Registro:</label> 
+					<input type="number" name="codigoRegistro" placeholder="Digite o código númerico de registro da peça" required>
+				</div>
+				<div class="form-group mt-2">
 					<label for="orcamento">Orçamento:</label> 
 					<input type="number" step="any" name="orcamento" placeholder="Valor do orçamento" required>
 				</div>

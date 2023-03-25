@@ -27,14 +27,15 @@
         	</c:if>
 		
 		<c:if test="${empty servicos}">
-			<h5>Não há clientes cadastrados!</h5>
+			<h5>Não há serviços cadastrados!</h5>
 		</c:if>
 		
-		<c:if test="${not empty servicos}">
+	<c:if test="${not empty servicos}">
 			<h5>Quantidade de serviços cadastrados: ${servicos.size()}</h5>
 			<table class="table table-striped">
 				<thead>
 					<tr>
+						<th>Id</th>
 						<th>Código de Registro</th>
 						<th>Serviço</th>
 						<th>Orçamento</th>
@@ -44,6 +45,7 @@
 				<tbody>
 					<c:forEach var="s" items="${servicos}">
 						<tr>
+							<td>${s.id}</td>
 							<td>${s.codigoRegistro}</td>
 							<td>${s.servico}</td>
 							<td>${s.orcamento}</td>

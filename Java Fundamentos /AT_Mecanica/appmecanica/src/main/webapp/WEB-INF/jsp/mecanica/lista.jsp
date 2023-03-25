@@ -35,6 +35,7 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
+						<th>Id</th>
 						<th>Código de Registro</th>
 						<th>Serviço</th>
 						<th>Peça</th>
@@ -48,6 +49,7 @@
 				<tbody>
 					<c:forEach var="m" items="${mecanicas}">
 						<tr>
+							<td>${m.id}</td>
 							<td>${m.codigoRegistro}</td>
 							<td>${m.servico}</td>
 							<td>${m.peca}</td>
@@ -55,7 +57,7 @@
 							<td>${m.quantidade}</td>
 							<td>R$${m.orcamento}</td>
 							<td>${m.getPecaNova()}</td>
-							<td><a class="excluir" href="/mecanica/${m.codigoRegistro}/excluir"><i class="fa-solid fa-trash"></i></a></td>
+							<td><a class="excluir" href="/mecanica/${m.id}/excluir"><i class="fa-solid fa-trash"></i></a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

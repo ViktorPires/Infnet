@@ -28,7 +28,7 @@ public class AtendimentoTest {
 	
 		
 		try {
-			Mecanica mecanica1 = new Mecanica("Adicionar Turbina", 2500, "Turbo");
+			Mecanica mecanica1 = new Mecanica("Adicionar Turbina", 2500, 334265, "Turbo");
 			mecanica1.setFabricante("Volkswagen");
 			mecanica1.setQuantidade(1);
 			mecanica1.setPecaNova(true);
@@ -40,7 +40,7 @@ public class AtendimentoTest {
 		}	
 		
 		try {
-			Mecanica mecanica2 = new Mecanica("Trocar Jogo de Pneus", 300, "Pneu");
+			Mecanica mecanica2 = new Mecanica("Trocar Pneu", 300, 269918, "Pneu");
 			mecanica2.setFabricante("Volkswagen");
 			mecanica2.setQuantidade(4);
 			mecanica2.setPecaNova(true);
@@ -51,8 +51,7 @@ public class AtendimentoTest {
 		}	
 		
 		try {
-			Mecanica mecanica3 = new Mecanica("Troca do Cárter", 800, "Cárter");
-			mecanica3.setFabricante("DHF");
+			Mecanica mecanica3 = new Mecanica("Troca do Cárter", 2800, 241013, "Cárter");
 			mecanica3.setQuantidade(1);
 			mecanica3.setPecaNova(false);
 			
@@ -62,7 +61,7 @@ public class AtendimentoTest {
 		}	
 		
 		try {
-			Funilaria funilaria1 = new Funilaria("Pintura da porta", 1450, "Tinta Azul", false, false, false, true);
+			Funilaria funilaria1 = new Funilaria("Pintura da porta", 1450, "Tinta Azul", false, false, false, true, 336600);
 			
 			servicosATDM4.add(funilaria1);
 		} catch (OrcamentoZeradoException | FunilariaInvalidoException e) {
@@ -70,7 +69,7 @@ public class AtendimentoTest {
 		}	
 		
 		try {
-			Funilaria funilaria2 = new Funilaria("Polimento do Veículo", 1000, "Cera, Lixa, Pano Microfibra, Massa e Algodão", false, false, true, false);
+			Funilaria funilaria2 = new Funilaria("Polimento do Veículo", 1000, "Cera, Lixa, Pano Microfibra, Massa e Algodão", false, false, true, false, 44568);
 		
 			servicosATDM2.add(funilaria2);
 			servicosATDM4.add(funilaria2);
@@ -79,7 +78,7 @@ public class AtendimentoTest {
 		}	
 		
 		try {
-			Funilaria funilaria3 = new Funilaria("Lanternagem e pintura", 3000, "Tasso duplo e Tinta Vermelha", false, true, false, true);
+			Funilaria funilaria3 = new Funilaria("Lanternagem e pintura", 3000, "Tasso duplo e Tinta Vermelha", false, true, false, true, 242311);
 			
 			servicosATDM3.add(funilaria3);
 		} catch (OrcamentoZeradoException | FunilariaInvalidoException e) {
@@ -87,7 +86,7 @@ public class AtendimentoTest {
 		}	
 		
 		try {
-			Acessorio acessorio1 = new Acessorio("Adicionar Película", 1500, "Segurança", "3M", true, true);
+			Acessorio acessorio1 = new Acessorio("Adicionar Pelicula", 1500, "Segurança", "3M", true, true, 249608);
 			
 			servicosATDM1.add(acessorio1);
 			servicosATDM4.add(acessorio1);
@@ -96,7 +95,7 @@ public class AtendimentoTest {
 		}	
 		
 		try {
-			Acessorio acessorio2 = new Acessorio("Adicionar Caixas de Som", 2750, "Sonorização", "JBL", true, true);
+			Acessorio acessorio2 = new Acessorio("Adicionar Caixas de Som", 2750, "Sonorização", "JBL", true, true, 811808);
 			
 			servicosATDM2.add(acessorio2);
 			servicosATDM4.add(acessorio2);
@@ -105,7 +104,7 @@ public class AtendimentoTest {
 		}	
 		
 		try {
-			Acessorio acessorio3 = new Acessorio("Porta Bicicletas", 500, "Lazer", "Transbikes", false, true);
+			Acessorio acessorio3 = new Acessorio("Porta Bicicletas", 500, "Lazer", "Transbikes", false, false, 263329);
 			
 			servicosATDM3.add(acessorio3);
 		} catch (OrcamentoZeradoException e) {

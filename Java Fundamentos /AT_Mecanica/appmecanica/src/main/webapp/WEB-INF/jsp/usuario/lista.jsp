@@ -41,6 +41,7 @@
 						<th>Senha</th>
 						<th>Clientes</th>
 						<th>Quantidade</th>
+						<th>Serviços</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -57,6 +58,7 @@
 								</c:forEach>
 							</td>
 							<td>${u.clientes.size()}</td>
+							<td>${u.servicos.size()}</td>
 							<td><a class="excluir" href="/usuario/${u.id}/excluir"><i class="fa-solid fa-trash"></i></a></td>
 						</tr>
 					</c:forEach>

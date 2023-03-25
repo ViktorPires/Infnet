@@ -1,15 +1,32 @@
 package br.edu.infnet.appmecanica.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.appmecanica.model.auxiliar.Constante;
 import br.edu.infnet.appmecanica.model.exceptions.OrcamentoZeradoException;
 import br.edu.infnet.appmecanica.model.exceptions.AcessorioEmFaltaException;
 
+@Entity
+@Table(name = "TAcessorio")
 public class Acessorio extends Servico {
 	
 	private String tipo;
 	private String fabricante;
 	private boolean acessorioOriginal;
 	private boolean acessorioEstoque;
+	
+	public Acessorio() {
+		
+	}
+	
+	public Acessorio(String servico, float orcamento, String tipo, String fabricante, boolean acessorioOriginal, boolean acessorioEstoque, int codigoRegistro) throws OrcamentoZeradoException {
+		super(servico, orcamento, codigoRegistro);
+		this.tipo = tipo;
+		this.fabricante = fabricante;
+		this.acessorioOriginal = acessorioOriginal;
+		this.acessorioEstoque = acessorioEstoque;	
+	}
 	
 	public Acessorio(String servico, float orcamento, String tipo, String fabricante, boolean acessorioOriginal, boolean acessorioEstoque) throws OrcamentoZeradoException {
 		super(servico, orcamento);
@@ -18,7 +35,7 @@ public class Acessorio extends Servico {
 		this.acessorioOriginal = acessorioOriginal;
 		this.acessorioEstoque = acessorioEstoque;	
 	}
-	
+
 	@Override
 	public float calcularValorOrcamento() throws AcessorioEmFaltaException {
 		

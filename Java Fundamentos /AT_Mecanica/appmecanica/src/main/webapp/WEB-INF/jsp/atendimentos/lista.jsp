@@ -50,8 +50,8 @@
 							<td>${a.id}</td>
 							<td>${a.descricao}</td>
 							<td>${a.mecanicoResponsavel}</td>
-							<td>${a.cliente}</td>
-							<td>${a.servicos}</td>
+							<td>${a.cliente.nome}</td>
+							<td>${a.servicos.size()}</td>
 							<td>${a.data}</td>
 							<td><a class="excluir" href="/atendimentos/${a.id}/excluir"><i class="fa-solid fa-trash"></i></a></td>
 						</tr>

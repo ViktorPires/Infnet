@@ -35,6 +35,7 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
+						<th>Id</th>
 						<th>Código de Registro</th>
 						<th>Serviço</th>
 						<th>Tipo</th>
@@ -48,6 +49,7 @@
 				<tbody>
 					<c:forEach var="a" items="${acessorios}">
 						<tr>
+							<td>${a.id}</td>
 							<td>${a.codigoRegistro}</td>
 							<td>${a.servico}</td>
 							<td>${a.tipo}</td>
@@ -55,7 +57,7 @@
 							<td>R$${a.orcamento}</td>
 							<td>${a.getAcessorioOriginal()}</td>
 							<td>${a.getAcessorioEstoque()}</td>
-							<td><a class="excluir" href="/acessorios/${a.codigoRegistro}/excluir"><i class="fa-solid fa-trash"></i></a></td>
+							<td><a class="excluir" href="/acessorios/${a.id}/excluir"><i class="fa-solid fa-trash"></i></a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

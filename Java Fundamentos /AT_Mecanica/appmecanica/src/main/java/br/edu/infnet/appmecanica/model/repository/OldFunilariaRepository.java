@@ -9,18 +9,18 @@ import org.springframework.stereotype.Repository;
 import br.edu.infnet.appmecanica.model.domain.Funilaria;
 
 @Repository
-public class FunilariaRepository {
+public class OldFunilariaRepository {
 	
-	private static Integer codigoRegistro = 1;
+	private static Integer id = 1;
 	
 	private static Map<Integer, Funilaria> mapaFunilaria = new HashMap<Integer, Funilaria>();
 	
 	public boolean incluir(Funilaria funilaria) {
 		
-		funilaria.setCodigoRegistro(codigoRegistro++);
+		funilaria.setId(id++);
 		
 		try {
-			mapaFunilaria.put(funilaria.getCodigoRegistro(), funilaria);
+			mapaFunilaria.put(funilaria.getId(), funilaria);
 			return true;
 		} catch (Exception e) {
 			return false;

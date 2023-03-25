@@ -39,6 +39,10 @@
 					<input type="text" name="fabricante" placeholder="Digite o fabricante" required>
 				</div>
 				<div class="form-group">
+					<label for="codigoRegistro">Código de Registro do Acessório:</label> 
+					<input type="number" name="codigoRegistro" placeholder="Digite o código númerico de registro do acessório" required>
+				</div>
+				<div class="form-group">
 					<label for="orcamento">Orçamento:</label> 
 					<input type="number" step="any" name="orcamento" placeholder="Valor do orçamento" required>
 				</div>

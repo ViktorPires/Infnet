@@ -62,7 +62,7 @@ public class ArquivoTest {
 						break;
 					case "M":
 						try {
-							Mecanica mecanica = new Mecanica(campos[1], Float.valueOf(campos[2]), campos[4]);
+							Mecanica mecanica = new Mecanica(campos[1], Float.valueOf(campos[2]), Integer.valueOf(campos[5]), campos[4]);
 							mecanica.setFabricante(campos[6]);
 							mecanica.setQuantidade(Integer.valueOf(campos[5]));
 							mecanica.setPecaNova(Boolean.valueOf(campos[7]));

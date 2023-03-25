@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appmecanica.model.domain.Funilaria;
+import br.edu.infnet.appmecanica.model.domain.Usuario;
 import br.edu.infnet.appmecanica.model.service.FunilariaService;
 
 
@@ -25,9 +27,9 @@ public class FunilariaController {
 	}
 	
 	@GetMapping(value = "/funilaria/lista")
-	public String telaLista(Model model) {
+	public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
 		
-		model.addAttribute("funilarias", funilariaService.obterLista());
+		model.addAttribute("funilarias", funilariaService.obterLista(usuario));
 		
 		model.addAttribute("mensagem", msg);
 		
@@ -37,7 +39,9 @@ public class FunilariaController {
 	}
 	
 	@PostMapping(value = "/funilaria/incluir")
-	public String incluir(Funilaria funilaria) {
+	public String incluir(Funilaria funilaria, @SessionAttribute("usuario") Usuario usuario) {
+		
+		funilaria.setUsuario(usuario);
 		
 		funilariaService.incluir(funilaria);
 		
@@ -46,10 +50,12 @@ public class FunilariaController {
 		return "redirect:/funilaria/lista";
 	}
 	
-	@GetMapping(value = "/funilaria/{codigoRegistro}/excluir")
-	public String excluir(@PathVariable Integer codigoRegistro) {
+	@GetMapping(value = "/funilaria/{id}/excluir")
+	public String excluir(@PathVariable Integer id) {
 		
-		Funilaria funilaria = funilariaService.excluir(codigoRegistro);
+		Funilaria funilaria = funilariaService.obterPorId(id);
+		
+		funilariaService.excluir(id);
 		
 		msg = "A exclusão do serviço de funilaria " + funilaria.getServico() + " foi realizada com sucesso!";
 		
