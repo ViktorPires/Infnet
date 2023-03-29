@@ -12,8 +12,16 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
 	<title>Cadastro de Usuário</title>
 	<style>
+		html, body {
+			height: 100%;
+		}
+	
 		body {
     		background-image: url("../../../resources/img/ferramentas-unsplash.jpg");
+    		background-size: cover;
+    		background-position: center;
+  			background-repeat: no-repeat;
+  			background-attachment: fixed;
 		}
 	</style>
 </head>
@@ -24,6 +32,15 @@
 	<div class="container">
 		<h3 class="text-center">Cadastro de Usuário</h3>
 		<br>
+		
+		<form action="/cep" class="form-inline" method="post">
+		
+			<label>Cep:</label>
+			<input type="text" name="cep" value="" class="form-control">
+			
+			<button type="submit" class="btn btn-primary">Buscar</button>
+		</form>
+		
 		<form action="/usuario/incluir" method="post">
 			<div>
 				<div class="form-group">
@@ -37,6 +54,9 @@
 				<div class="form-group">
 					<label for="senha">Senha:</label> <input type="password" name="senha" required>
 				</div>
+				
+				<c:import url="/WEB-INF/jsp/endereco/cadastro.jsp"/>
+				
 				<button type="submit" class="btn btn-default">Cadastrar</button>
 			</div>
 		</form>

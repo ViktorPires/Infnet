@@ -55,9 +55,13 @@ public class FunilariaController {
 		
 		Funilaria funilaria = funilariaService.obterPorId(id);
 		
-		funilariaService.excluir(id);
-		
-		msg = "A exclusão do serviço de funilaria " + funilaria.getServico() + " foi realizada com sucesso!";
+		try {
+			funilariaService.excluir(id);
+			
+			msg = "A exclusão do serviço de funilaria" + funilaria.getServico() + " foi realizada com sucesso!";
+		} catch (Exception e) {
+			msg = "Impossível realizar a exclusão do serviço de funilaria" + funilaria.getServico() + "!";
+		}
 		
 		return "redirect:/funilaria/lista";
 	}

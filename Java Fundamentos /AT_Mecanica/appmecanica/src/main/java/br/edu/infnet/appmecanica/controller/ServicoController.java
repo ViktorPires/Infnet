@@ -37,9 +37,13 @@ public class ServicoController {
 		
 		Servico servico = servicoService.obterPorId(id);
 		
-		servicoService.excluir(id);
-		
-		msg = "A exclusão do serviço " + servico.getServico() + " foi realizada com sucesso!";
+		try {
+			servicoService.excluir(id);
+			
+			msg = "A exclusão do serviço " + servico.getServico() + " foi realizada com sucesso!";
+		} catch (Exception e) {
+			msg = "Impossível realizar a exclusão do serviço " + servico.getServico() + "!";
+		}
 		
 		return "redirect:/servicos/lista";
 	}

@@ -39,10 +39,15 @@
 						<th>Nome</th>
 						<th>E-mail</th>
 						<th>Senha</th>
+						<th>Admin</th>
+						<th>Endereço</th>
 						<th>Clientes</th>
 						<th>Quantidade</th>
 						<th>Serviços</th>
-						<th></th>
+						<th>Atendimentos</th>
+						<c:if test="${usuario.admin}">
+							<th></th>
+						</c:if>
 					</tr>
 				</thead>
 				<tbody>
@@ -52,6 +57,8 @@
 							<td>${u.nome}</td>
 							<td>${u.email}</td>
 							<td>${u.senha}</td>
+							<td>${u.admin}</td>
+							<td>${u.endereco}</td>
 							<td>
 								<c:forEach var="cliente" items="${u.clientes}">
 									${cliente.nome} <br>
@@ -59,7 +66,10 @@
 							</td>
 							<td>${u.clientes.size()}</td>
 							<td>${u.servicos.size()}</td>
-							<td><a class="excluir" href="/usuario/${u.id}/excluir"><i class="fa-solid fa-trash"></i></a></td>
+							<td>${u.atendimentos.size()}</td>
+							<c:if test="${usuario.admin}">
+								<td><a class="excluir" href="/usuario/${u.id}/excluir"><i class="fa-solid fa-trash"></i></a></td>
+							</c:if>
 						</tr>
 					</c:forEach>
 				</tbody>

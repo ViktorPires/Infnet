@@ -54,9 +54,13 @@ public class AcessorioController {
 		
 		Acessorio acessorio = acessorioService.obterPorId(id);
 		
-		acessorioService.excluir(id);
-		
-		msg = "A exclusão do serviço de acessório " + acessorio.getServico() + " foi realizada com sucesso!";
+		try {
+			acessorioService.excluir(id);
+			
+			msg = "A exclusão do serviço de acessório " + acessorio.getServico() + " foi realizada com sucesso!";
+		} catch (Exception e) {
+			msg = "Impossível realizar a exclusão do serviço de acessório " + acessorio.getServico() + "!";
+		}
 		
 		return "redirect:/acessorios/lista";
 	}

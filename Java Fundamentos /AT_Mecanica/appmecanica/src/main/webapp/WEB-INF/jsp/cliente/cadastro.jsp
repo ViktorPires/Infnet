@@ -12,8 +12,16 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
 	<title>Cliente - Cadastro</title>
 	<style>
+		html, body {
+			height: 100%;
+		}
+	
 		body {
     		background-image: url("../../../resources/img/cliente.jpg");
+    		background-size: cover;
+    		background-position: center;
+  			background-repeat: no-repeat;
+  			background-attachment: fixed;
 		}
 	</style>
 </head>
@@ -31,8 +39,8 @@
 					<input type="text" name="nome" placeholder="Digite o nome completo" required>
 				</div>
 				<div class="form-group">
-					<label for="endereco">Endereço:</label> 
-					<input type="text" name="endereco" placeholder="Digite o endereço completo" required>
+					<label for="email">Email:</label> 
+					<input type="email" name="email" placeholder="Digite o email do cliente" required>
 				</div>
 				<div class="form-group">
 					<label for="telefone">Telefone:</label> 
@@ -42,10 +50,13 @@
 					<label for="veiculo">Veículo:</label> 
 					<input type="text" name="veiculo" placeholder="Digite o modelo do veículo" required>
 				</div>
-				<div class="form-group mt-3">
+				<div class="form-group mb-3 mt-3">
 					<label for="anoVeiculo">Ano do Veículo:</label> 
 					<input type="number" name="anoVeiculo" required>
 				</div>
+				
+				<c:import url="/WEB-INF/jsp/endereco/cadastro.jsp"/>
+				
 				<button type="submit" class="btn btn-default">Cadastrar</button>
 			</div>
 		</form>

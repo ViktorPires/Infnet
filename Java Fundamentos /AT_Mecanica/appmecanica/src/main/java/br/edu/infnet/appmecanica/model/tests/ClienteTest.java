@@ -9,21 +9,21 @@ public class ClienteTest {
 		
 		
 		try {
-			Cliente cliente1 = new Cliente("Pedrinho", "Rua do Barão, Porto Alegre", "51952524555", "Golf", 2021);
+			Cliente cliente1 = new Cliente("Pedrinho", "pedrinho@mail.com", "51952524555", "Golf", 2021);
 			System.out.println(cliente1);
 		} catch (ClienteInvalidoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 
 		try {
-			Cliente cliente2 = new Cliente(null, "Rua Leopoldina, Canoas", "519241236987", "Polo", 2019);
+			Cliente cliente2 = new Cliente(null, "mail@mail.com", "519241236987", "Polo", 2019);
 			System.out.println(cliente2);
 		} catch (ClienteInvalidoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
 		try {
-			Cliente cliente3 = new Cliente("Luizinho", "Rua do Gravataí, Viamão", "51952524555", null, 2018);
+			Cliente cliente3 = new Cliente("Luizinho", "luizinho@mail.com", "51952524555", null, 2018);
 			System.out.println(cliente3);
 		} catch (ClienteInvalidoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
@@ -37,14 +37,14 @@ public class ClienteTest {
 		}
 		
 		try {
-			Cliente cliente5 = new Cliente("Roberta", "Rua da República, Porto Alegre", null, "208", 2021);
+			Cliente cliente5 = new Cliente("Roberta", "roberta@mail.com", null, "208", 2021);
 			System.out.println(cliente5);
 		} catch (ClienteInvalidoException e) {
 			System.out.println("[ERRO] " + e.getMessage());
 		}
 		
 		try {
-			Cliente cliente6 = new Cliente("Zezinho", "Av. João Pessoa, Porto Alegre", "51952528799", "C3", 0);
+			Cliente cliente6 = new Cliente("Zezinho", "ze@mail.com", "51952528799", "C3", 0);
 			System.out.println(cliente6);
 		} catch (ClienteInvalidoException e) {
 			System.out.println("[ERRO] " + e.getMessage());

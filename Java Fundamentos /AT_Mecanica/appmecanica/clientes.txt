@@ -1,3 +1,3 @@
-Eduardo;Rua Dom Feliciano, nº 1350, apto 902;51999992222;Jetta;2021
-Raul;Rua Sarmento Leite, nº 500, apto 403;5199999999;Polo;2020
-Vera;Rua Zambecari, nº 1000;51988888844;DS4;2022
+Eduardo;eduardo@mail.com;51999992222;Jetta;2021
+Raul;raul@mail.com;5199999999;Polo;2020
+Vera;vera@mail.com;51988888844;DS4;2022

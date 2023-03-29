@@ -29,7 +29,7 @@ public class Atendimento {
 	private LocalDate data;
 	private String mecanicoResponsavel;
 	@OneToOne(cascade = CascadeType.DETACH)
-	@JoinColumn(name = "cliente_id")
+	@JoinColumn(name = "idCliente")
 	private Cliente cliente;
 	@ManyToMany(cascade = CascadeType.DETACH)
 	private List<Servico> servicos;

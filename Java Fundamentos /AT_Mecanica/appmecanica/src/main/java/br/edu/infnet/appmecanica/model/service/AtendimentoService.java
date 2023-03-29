@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appmecanica.model.domain.Atendimento;
-import br.edu.infnet.appmecanica.model.domain.Mecanica;
 import br.edu.infnet.appmecanica.model.domain.Usuario;
 import br.edu.infnet.appmecanica.model.repository.IAtendimentoRepository;
 

@@ -55,9 +55,13 @@ public class MecanicaController {
 		
 		Mecanica mecanica = mecanicaService.obterPorId(id);
 		
-		mecanicaService.excluir(id);
-		
-		msg = "A exclusão do serviço de mecânica " + mecanica.getServico() + " foi realizada com sucesso!";
+		try {
+			mecanicaService.excluir(id);
+			
+			msg = "A exclusão do serviço de mecânica " + mecanica.getServico() + " foi realizada com sucesso!";
+		} catch (Exception e) {
+			msg = "Impossível realizar a exclusão do serviço de mecânica " + mecanica.getServico() + "!";
+		}
 		
 		return "redirect:/mecanica/lista";
 	}

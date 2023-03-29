@@ -34,49 +34,38 @@
 					<label for="mecanicoResponsavel">Mecânico Responsável:</label> 
 					<input type="text" name="mecanicoResponsavel" placeholder="Mecânico responsável pelo atendimento" required>
 				</div>
-				<select class="form-select" aria-label="Default select example" name="cliente">
+				<select class="form-select" name="cliente.id">
   					<c:if test="${not empty clientes}">
   						<option selected disabled>Selecione o cliente:</option>
-  						<c:forEach var="cliente" items="${clientes}">
-  							<option value="${cliente.getId()}">${cliente.getNome()}</option>
+  						<c:forEach var="c" items="${clientes}">
+  							<option value="${c.id}">${c.nome}</option>
   						</c:forEach>
   					</c:if>
   					<c:if test="${empty clientes}">
   						<option selected disabled>Não há clientes cadastrados!</option>
   					</c:if>
 				</select>
-				<h4 class="text-center mt-2">Selecione os Serviços Prestados</h4>
-				<div class="input-group mt-3">
-					<select class="form-control rounded" id="mySelect" multiple>
-						<option class="text-center" disabled>Mecânica</option>
-						<c:forEach var="mecanica" items="${mecanicas}">
-				      		<option value="${mecanica}">${mecanica.getServico()}</option>
-				    	</c:forEach>
-				  	</select>
-					<span class="input-group-btn">
-				    	<button class="btn btn-warning btn-sm mt-4 ms-1 me-2" type="button">Adicionar</button>
-				  	</span>
-				  	<select class="form-control rounded" id="mySelect" multiple>
-				   		<option class="text-center" disabled>Funilaria</option>
-				    	<c:forEach var="funilaria" items="${funilarias}">
-				      		<option value="${funilaria}">${funilaria.getServico()}</option>
-				    	</c:forEach>
-				  	</select>
-				  	<span class="input-group-btn">
-				    	<button class="btn btn-warning btn-sm mt-4 ms-1 me-2" type="button">Adicionar</button>
-				  	</span>
-				   	<select class="form-control rounded" id="mySelect" multiple>
-				   		<option class="text-center" disabled>Acessório</option>
-				    	<c:forEach var="acessorio" items="${acessorios}">
-				      		<option value="${acessorio}">${acessorio.getServico()}</option>
-				    	</c:forEach>
-				  	</select>
-				  	<span class="input-group-btn">
-				    	<button class="btn btn-warning btn-sm mt-4 ms-1 me-2" type="button">Adicionar</button>
-				  	</span>
-				</div>
-				<div id="addedItems"></div>
+				<h4 class="text-center mt-3">Selecione os Serviços Prestados</h4>
+				<c:if test="${not empty servicos}">
+					<div class="input-group mt-3">
+						<c:forEach var="s" items="${servicos}">
+							<div class="form-check">
+								<label class="form-check-label">
+									<input type="checkbox" name="servicos" value="${s.id}" class="form-check-input"> ${s.servico}  
+								</label>
+							</div>
+					    </c:forEach>
+					</div>
+				</c:if>
+				<c:if test="${empty servicos}">
+					<p class="h6 text-center mt-4">Não há serviços cadastrados!</p>
+				</c:if>
+				<c:if test="${empty clientes or empty servicos}">
+					<button type="submit" class="btn btn-default mt-3" disabled>Cadastrar</button>
+				</c:if>
+				<c:if test="${not empty clientes and not empty servicos}">
 					<button type="submit" class="btn btn-default mt-3">Cadastrar</button>
+				</c:if>
 			</div>
 		</form>
 	</div>

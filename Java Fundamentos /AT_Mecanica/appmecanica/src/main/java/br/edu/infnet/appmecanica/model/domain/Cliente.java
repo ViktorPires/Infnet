@@ -1,11 +1,13 @@
 package br.edu.infnet.appmecanica.model.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.edu.infnet.appmecanica.model.exceptions.ClienteInvalidoException;
@@ -18,18 +20,21 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	private String endereco;
+	private String email;
 	private String telefone;
 	private String veiculo;
 	private int anoVeiculo;
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "idEndereco")
+	private Endereco endereco;
 	
 	public Cliente() {
 	}
 	
-	public Cliente(String nome, String endereco, String telefone, String veiculo, int anoVeiculo) throws ClienteInvalidoException {
+	public Cliente(String nome, String email, String telefone, String veiculo, int anoVeiculo) throws ClienteInvalidoException {
 		
 		this();
 		
@@ -37,7 +42,7 @@ public class Cliente {
 			throw new ClienteInvalidoException("O nome do cliente deve ser preenchido!");
 		}
 		
-		if(endereco == null) {
+		if(email == null) {
 			throw new ClienteInvalidoException("O endereço do cliente deve ser preenchido!");
 		}
 		
@@ -54,7 +59,7 @@ public class Cliente {
 		}
 		
 		this.nome = nome;
-		this.endereco = endereco;
+		this.email = email;
 		this.telefone = telefone;
 		this.veiculo = veiculo;
 		this.anoVeiculo = anoVeiculo;
@@ -66,7 +71,7 @@ public class Cliente {
 		StringBuilder sb = new StringBuilder();
 		sb.append(nome);
 		sb.append(";");
-		sb.append(endereco);
+		sb.append(email);
 		sb.append(";");
 		sb.append(telefone);
 		sb.append(";");
@@ -93,12 +98,12 @@ public class Cliente {
 		this.nome = nome;
 	}
 	
-	public String getEndereco() {
-		return endereco;
+	public String getEmail() {
+		return email;
 	}
 	
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	public String getTelefone() {
@@ -108,7 +113,6 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-
 	
 	public String getVeiculo() {
 		return veiculo;
@@ -132,5 +136,13 @@ public class Cliente {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 }

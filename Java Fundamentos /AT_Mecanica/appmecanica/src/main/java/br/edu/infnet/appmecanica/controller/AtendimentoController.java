@@ -11,11 +11,9 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appmecanica.model.domain.Atendimento;
 import br.edu.infnet.appmecanica.model.domain.Usuario;
-import br.edu.infnet.appmecanica.model.service.AcessorioService;
 import br.edu.infnet.appmecanica.model.service.AtendimentoService;
 import br.edu.infnet.appmecanica.model.service.ClienteService;
-import br.edu.infnet.appmecanica.model.service.FunilariaService;
-import br.edu.infnet.appmecanica.model.service.MecanicaService;
+import br.edu.infnet.appmecanica.model.service.ServicoService;
 
 @Controller
 public class AtendimentoController {	
@@ -23,11 +21,21 @@ public class AtendimentoController {
 	@Autowired
 	private AtendimentoService atendimentoService;
 	
+	@Autowired
+	private ClienteService clienteService;
+	
+	@Autowired
+	private ServicoService servicoService;
+	
 	private String msg;
 	
 	@GetMapping(value = "/atendimentos")
-	public String telaCadastro(Model model) {
-	
+	public String telaCadastro(Model model, @SessionAttribute("usuario") Usuario usuario) {
+		
+		model.addAttribute("clientes", clienteService.obterLista(usuario));
+		
+		model.addAttribute("servicos", servicoService.obterLista(usuario));
+		
 		return "atendimentos/cadastro";
 	}
 	
@@ -35,7 +43,7 @@ public class AtendimentoController {
 	public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {
 		
 		model.addAttribute("atendimentos", atendimentoService.obterLista(usuario));
-		
+
 		model.addAttribute("mensagem", msg);
 		
 		msg = null;
@@ -49,6 +57,9 @@ public class AtendimentoController {
 		atendimento.setUsuario(usuario);
 		
 		atendimentoService.incluir(atendimento);
+		
+		System.out.println("Cliente: " + atendimento.getCliente().getId());
+		System.out.println("Serviços " + atendimento.getServicos());
 		
 		msg = "A inclusão do atendimento " + atendimento.getDescricao() + " foi realizada com sucesso!";
 		
