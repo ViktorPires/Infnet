@@ -1,6 +1,7 @@
 package br.edu.infnet.atapijavanuvem.controller;
 
 import br.edu.infnet.atapijavanuvem.model.domain.DevedorPF;
+import br.edu.infnet.atapijavanuvem.model.domain.DevedorPJ;
 import br.edu.infnet.atapijavanuvem.model.service.AmazonClientService;
 import br.edu.infnet.atapijavanuvem.model.service.DevedorPFService;
 import com.amazonaws.services.s3.model.S3Object;
@@ -271,6 +272,23 @@ public class DevedorPFController {
 	})
 	@DeleteMapping(value = "{id}/excluir")
 	public void excluir(@PathVariable Integer id) {
+		DevedorPF devedorPF = devedorPFService.obterPorId(id);
+
+		// Obtém a chave do arquivo no banco de dados
+		String url = devedorPF.getArquivoUrl();
+
+		if(url != null) {
+			String[] parts = url.split("/");
+			String objectKey = parts[parts.length - 1];
+
+			// Deleta o arquivo do S3 Bucket
+			amazonClientService.delete(objectKey);
+
+			devedorPF.setArquivo(null);
+			devedorPF.setArquivoUrl(null);
+		}
+
+		// Atualiza o devedorPJ no banco de dados
 		devedorPFService.excluir(id);
 	}
 }

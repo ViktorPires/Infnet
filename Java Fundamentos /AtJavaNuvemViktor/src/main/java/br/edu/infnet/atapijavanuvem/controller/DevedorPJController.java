@@ -273,6 +273,23 @@ public class DevedorPJController {
 	})
 	@DeleteMapping(value = "{id}/excluir")
 	public void excluir(@PathVariable Integer id) {
+		DevedorPJ devedorPJ = devedorPJService.obterPorId(id);
+
+		// Obtém a chave do arquivo no banco de dados
+		String url = devedorPJ.getArquivoUrl();
+
+		if(url != null) {
+			String[] parts = url.split("/");
+			String objectKey = parts[parts.length - 1];
+
+			// Deleta o arquivo do S3 Bucket
+			amazonClientService.delete(objectKey);
+
+			devedorPJ.setArquivo(null);
+			devedorPJ.setArquivoUrl(null);
+		}
+
+		// Atualiza o devedorPJ no banco de dados
 		devedorPJService.excluir(id);
 	}
 }
