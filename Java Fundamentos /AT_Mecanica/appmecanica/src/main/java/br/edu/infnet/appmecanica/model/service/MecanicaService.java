@@ -3,6 +3,8 @@ package br.edu.infnet.appmecanica.model.service;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appmecanica.model.domain.Mecanica;
@@ -28,7 +30,7 @@ public class MecanicaService {
 	}
 	
 	public Collection<Mecanica> obterLista(Usuario usuario) {
-		return (Collection<Mecanica>) mecanicaRepository.obterLista(usuario.getId());
+		return mecanicaRepository.obterLista(usuario.getId(), Sort.by(Direction.DESC, "orcamento"));
 	}
 	
 	public Mecanica obterPorId(Integer id) {

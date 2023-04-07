@@ -60,7 +60,7 @@ public class FunilariaController {
 			
 			msg = "A exclusão do serviço de funilaria" + funilaria.getServico() + " foi realizada com sucesso!";
 		} catch (Exception e) {
-			msg = "Impossível realizar a exclusão do serviço de funilaria" + funilaria.getServico() + "!";
+			msg = "Impossível realizar a exclusão do serviço de funilaria " + funilaria.getServico() + "!";
 		}
 		
 		return "redirect:/funilaria/lista";

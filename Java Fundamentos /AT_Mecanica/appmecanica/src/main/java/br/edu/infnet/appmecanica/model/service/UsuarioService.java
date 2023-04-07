@@ -1,8 +1,10 @@
 package br.edu.infnet.appmecanica.model.service;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appmecanica.model.domain.Usuario;
@@ -27,6 +29,11 @@ public class UsuarioService {
 	}
 	
 	public Collection<Usuario> obterLista() {
-		return (Collection<Usuario>) usuarioRepository.findAll();
+	    Sort sort = Sort.by(Sort.Direction.ASC, "nome");
+	   
+	    List<Usuario> listaOrdenada = usuarioRepository.findAll(sort);
+	   
+	    return listaOrdenada;
 	}
+
 }

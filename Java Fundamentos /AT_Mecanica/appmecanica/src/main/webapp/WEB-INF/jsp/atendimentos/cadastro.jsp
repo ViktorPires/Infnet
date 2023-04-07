@@ -47,10 +47,10 @@
 				</select>
 				<h4 class="text-center mt-3">Selecione os Serviços Prestados</h4>
 				<c:if test="${not empty servicos}">
-					<div class="input-group mt-3">
+					<div class="input-group d-flex flex-column justify-content-center align-items-center mt-3">
 						<c:forEach var="s" items="${servicos}">
-							<div class="form-check">
-								<label class="form-check-label">
+							<div class="form-check ms-2">
+								<label class="form-check-label servico-label">
 									<input type="checkbox" name="servicos" value="${s.id}" class="form-check-input"> ${s.servico}  
 								</label>
 							</div>

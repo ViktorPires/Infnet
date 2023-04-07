@@ -34,7 +34,7 @@ public class AtendimentoController {
 		
 		model.addAttribute("clientes", clienteService.obterLista(usuario));
 		
-		model.addAttribute("servicos", servicoService.obterLista(usuario));
+		model.addAttribute("servicos", servicoService.obterListaServicosOrd(usuario));
 		
 		return "atendimentos/cadastro";
 	}
