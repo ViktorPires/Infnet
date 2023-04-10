@@ -32,6 +32,15 @@
 	<div class="container">
 		<h3 class="text-center">Cliente - Cadastro</h3>
 		<br>
+		
+		<form action="/cep?pagina=cliente" class="form-inline" method="post">
+		
+			<label>Cep:</label>
+			<input type="text" name="cep" value="" class="form-control">
+			
+			<button type="submit" class="btn btn-primary">Buscar</button>
+		</form>
+		
 		<form action="/cliente/incluir" method="post">
 			<div>
 				<div class="form-group">

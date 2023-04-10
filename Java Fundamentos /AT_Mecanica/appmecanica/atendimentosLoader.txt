@@ -1,0 +1,5 @@
+Trocar Óleo;1;Vera;2;Adalberto
+Trocar Bombda de Ignição;1;Raul;2;Adalberto
+Instalar Turbo;1;Eduardo;3;Joãozinho
+Instalar Chip de Potência;1;Eduardo;1;Joãozinho
+Trocar Pneus;3;Raul;4;Pedrinho

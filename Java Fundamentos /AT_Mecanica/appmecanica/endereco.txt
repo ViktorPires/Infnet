@@ -1,0 +1,5 @@
+90050170;Rua Sarmento Leite;999;Centro;Porto Alegre;RS
+90050170;Rua Sarmento Leite;1050;Centro;Porto Alegre;RS
+91220100;Rua Aura Pereira Lemos;1500;Jardim Itu;Porto Alegre;RS
+91220100;Rua Aura Pereira Lemos;2000;Jardim Itu;Porto Alegre;RS
+91220100;Rua Aura Pereira Lemos;348;Jardim Itu;Porto Alegre;RS

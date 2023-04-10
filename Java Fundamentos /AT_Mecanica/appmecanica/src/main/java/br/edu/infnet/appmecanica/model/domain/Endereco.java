@@ -4,12 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "TEndereco")
 public class Endereco {
-
+	
+	@JsonIgnore
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -19,6 +23,23 @@ public class Endereco {
 	private String bairro;
 	private String localidade;
 	private String uf;
+	@OneToOne(mappedBy = "endereco")
+	private Usuario usuario;
+	@OneToOne(mappedBy = "endereco")
+	private Cliente cliente; 
+	
+	public Endereco() {
+	}
+	
+	public Endereco(String cep, String logradouro, String complemento, String bairro, String localidade, String uf) {
+		
+		this.cep = cep;
+		this.logradouro = logradouro;
+		this.complemento = complemento;
+		this.bairro = bairro;
+		this.localidade = localidade;
+		this.uf = uf;
+	}
 	
 	@Override
 	public String toString() {

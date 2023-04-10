@@ -1,0 +1,3 @@
+91910001;Av. Otto Niemeyer;443;Tristeza;Porto Alegre;RS
+91310002;Av. Protásio Alves;3701;Petrópolis;Porto Alegre;RS
+91360001;Av. do Forte;895;Vila Ipiranga;Porto Alegre;RS

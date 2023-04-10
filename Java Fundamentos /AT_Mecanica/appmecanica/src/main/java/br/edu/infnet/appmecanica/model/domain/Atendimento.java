@@ -38,8 +38,9 @@ public class Atendimento {
 	private Usuario usuario;
 	
 	public Atendimento() {
-
+		this.data = LocalDate.now();
 	}
+
 	
 	public Atendimento(Cliente cliente, List<Servico> servicos, String descricao, String mecanicoResponsavel) throws AtendimentoSemClienteException, AtendimentoSemServicoException {
 		this();

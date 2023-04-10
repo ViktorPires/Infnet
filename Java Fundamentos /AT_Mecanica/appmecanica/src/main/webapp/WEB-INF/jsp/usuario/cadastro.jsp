@@ -33,7 +33,7 @@
 		<h3 class="text-center">Cadastro de Usuário</h3>
 		<br>
 		
-		<form action="/cep" class="form-inline" method="post">
+		<form action="/cep?pagina=usuario" class="form-inline" method="post">
 		
 			<label>Cep:</label>
 			<input type="text" name="cep" value="" class="form-control">
