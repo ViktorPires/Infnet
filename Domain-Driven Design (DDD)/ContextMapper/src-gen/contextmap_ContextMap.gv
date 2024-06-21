@@ -1,0 +1,73 @@
+digraph "ContextMapGraph" {
+graph ["imagepath"="/tmp/GraphvizJava"]
+"Agendamento_de_Servicos" ["margin"="0.3","orientation"="320","shape"="egg","fontsize"="16","style"="bold","label"="Agendamento_de_Servicos\n","fontname"="sans-serif"]
+"Atendimento_ao_Cliente" ["margin"="0.3","orientation"="74","shape"="egg","fontsize"="16","style"="bold","label"="Atendimento_ao_Cliente\n","fontname"="sans-serif"]
+"Gerenciamento_Franquia" ["margin"="0.3","orientation"="166","shape"="egg","fontsize"="16","style"="bold","label"="Gerenciamento_Franquia\n","fontname"="sans-serif"]
+"Disponibilidade_de_Servicos" ["margin"="0.3","orientation"="199","shape"="egg","fontsize"="16","style"="bold","label"="Disponibilidade_de_Servicos\n","fontname"="sans-serif"]
+"Catalogo_de_Produtos" ["margin"="0.3","orientation"="37","shape"="egg","fontsize"="16","style"="bold","label"="Catalogo_de_Produtos\n","fontname"="sans-serif"]
+"Gestao_Comercial" ["margin"="0.3","orientation"="164","shape"="egg","fontsize"="16","style"="bold","label"="Gestao_Comercial\n","fontname"="sans-serif"]
+"Conselho_de_Medicina_Veterinaria_Externo" ["margin"="0.3","orientation"="214","shape"="egg","fontsize"="16","style"="bold","label"="Conselho_de_Medicina_Veterinaria_Externo\n","fontname"="sans-serif"]
+"Gestao_de_Veterinarios" ["margin"="0.3","orientation"="76","shape"="egg","fontsize"="16","style"="bold","label"="Gestao_de_Veterinarios\n","fontname"="sans-serif"]
+"Gestao_de_Passeadores" ["margin"="0.3","orientation"="76","shape"="egg","fontsize"="16","style"="bold","label"="Gestao_de_Passeadores\n","fontname"="sans-serif"]
+"Agendamento_de_Servicos" -> "Atendimento_ao_Cliente" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"Agendamento_de_Servicos" -> "Gerenciamento_Franquia" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">U</td></tr>
+</table>>,"style"="bold","label"="Customer/Supplier","dir"="none","fontname"="sans-serif"]
+"Gerenciamento_Franquia" -> "Atendimento_ao_Cliente" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"Gerenciamento_Franquia" -> "Disponibilidade_de_Servicos" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"Disponibilidade_de_Servicos" -> "Agendamento_de_Servicos" ["fontsize"="12","style"="bold","label"="Partnership","dir"="none","fontname"="sans-serif"]
+"Catalogo_de_Produtos" -> "Gestao_Comercial" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"Gestao_Comercial" -> "Gerenciamento_Franquia" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"Gestao_Comercial" -> "Atendimento_ao_Cliente" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"Conselho_de_Medicina_Veterinaria_Externo" -> "Gestao_de_Veterinarios" ["headlabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">D</td><td sides="trbl" bgcolor="white"><font>ACL</font></td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">U</td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"Gestao_de_Veterinarios" -> "Atendimento_ao_Cliente" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"Gestao_de_Veterinarios" -> "Gerenciamento_Franquia" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"Gestao_de_Passeadores" -> "Atendimento_ao_Cliente" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+"Gestao_de_Passeadores" -> "Gerenciamento_Franquia" ["headlabel"=<<table cellspacing="0" cellborder="0" border="0">
+<tr><td bgcolor="white">D</td></tr>
+</table>>,"labeldistance"="0","fontsize"="12","taillabel"=<<table cellspacing="0" cellborder="1" border="0">
+<tr><td bgcolor="white" sides="r">U</td><td sides="trbl" bgcolor="white"><font>OHS</font></td></tr>
+</table>>,"style"="bold","label"="                                        ","dir"="none","fontname"="sans-serif"]
+}

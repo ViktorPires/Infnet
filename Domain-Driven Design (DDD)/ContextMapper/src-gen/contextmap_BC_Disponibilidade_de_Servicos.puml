@@ -1,0 +1,27 @@
+@startuml
+
+skinparam componentStyle uml2
+
+package "'Disponibilidade' Aggregate" <<Rectangle>> {
+	class Disponibilidade <<(A,#fffab8) Aggregate Root>> {
+		int franquiaId
+		int profissionalId
+		int servicoId
+		boolean disponivel
+		DisponibilidadeId id
+		List<PeriodoDisponivel> periodoDisponivel
+		List<PeriodoAgendado> periodosAgendados
+	}
+	class DisponibilidadeId <<(V,DarkSeaGreen) Value Object>> {
+		int disponibilidadeId
+	}
+	class PeriodoDisponivel <<(V,DarkSeaGreen) Value Object>> {
+		DateTime dataHoraInicio
+		DateTime dataHoraFim
+	}
+}
+Disponibilidade --> DisponibilidadeId : id
+Disponibilidade "1" *--> "*" PeriodoDisponivel : periodoDisponivel
+
+
+@enduml

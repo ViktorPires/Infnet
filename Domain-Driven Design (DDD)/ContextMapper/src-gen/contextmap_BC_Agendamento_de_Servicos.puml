@@ -1,0 +1,31 @@
+@startuml
+
+skinparam componentStyle uml2
+
+package "'Agendamento' Aggregate" <<Rectangle>> {
+	class Agendamento <<(A,#fffab8) Aggregate Root>> {
+		int clienteId
+		AgendamentoId id
+		PeriodoAgendado periodoAgendado
+		Status status
+	}
+	class AgendamentoId <<(V,DarkSeaGreen) Value Object>> {
+		int agendamentoId
+	}
+	class PeriodoAgendado <<(V,DarkSeaGreen) Value Object>> {
+		DateTime dataHoraInicio
+		DateTime dataHoraFim
+	}
+	enum Status {
+		Agendado
+		Confirmado
+		Cancelado
+		Concluido
+	}
+}
+Agendamento --> AgendamentoId : id
+Agendamento --> Status : status
+Agendamento --> PeriodoAgendado : periodoAgendado
+
+
+@enduml

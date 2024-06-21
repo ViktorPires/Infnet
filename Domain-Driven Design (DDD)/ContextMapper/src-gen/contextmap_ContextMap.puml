@@ -1,0 +1,121 @@
+@startuml
+
+skinparam componentStyle uml2
+
+component [Gerenciamento_Franquia]
+note right of [Gerenciamento_Franquia]
+Fornece as funcionalidades de 
+gerenciamento de franquias cadastradas, 
+disponibilidade de banho e tosa 
+por franquia e funcionários cadastrados 
+no estabelecimento 
+end note
+component [Gestao_Comercial]
+note right of [Gestao_Comercial]
+Fornece as funcionalidades de 
+ordem de pedidos 
+end note
+component [Atendimento_ao_Cliente]
+note right of [Atendimento_ao_Cliente]
+Atua como fachada aos clientes 
+(usuário e franquia) realizando 
+agendamentos, possibilitando compra 
+de produtos e fornecendo dados 
+de franquias, veterinários e passeadores 
+
+end note
+component [Agendamento_de_Servicos]
+note right of [Agendamento_de_Servicos]
+Fornece a funcionalidade de agendamento 
+de consulta, passeio, banho e 
+tosa, bem como notifica a franquia 
+sobre o agendamento 
+end note
+component [Gestao_de_Veterinarios]
+note right of [Gestao_de_Veterinarios]
+Fornece as funcionalidades de 
+consulta médica, bem como filtra 
+e gerencia os médicos veterínários 
+cadastrados por região e disponibilidade 
+
+end note
+component [Conselho_de_Medicina_Veterinaria_Externo]
+note right of [Conselho_de_Medicina_Veterinaria_Externo]
+Fornece a funcionalidade de gerenciamento 
+dos cadastros de médicos veterinários 
+válidos/aptos para atuar 
+end note
+component [Catalogo_de_Produtos]
+note right of [Catalogo_de_Produtos]
+Fornece a funcionalidade de verificação 
+de estoque e catálogo completo 
+dos produtos 
+end note
+component [Gestao_de_Passeadores]
+note right of [Gestao_de_Passeadores]
+Fornece a funcionalidade de passeio, 
+bem como gerencia os passeadores 
+cadastrados e aptos para atuar 
+conforme a região e sua disponibilidade 
+
+end note
+component [Disponibilidade_de_Servicos]
+note right of [Disponibilidade_de_Servicos]
+Fornece a funcionalidade de verificação 
+e marcação de disponibilidade 
+conforme serviço e região 
+end note
+
+interface "RESTful HTTP" as Gestao_de_Veterinarios_to_Conselho_de_Medicina_Veterinaria_Externo
+[Conselho_de_Medicina_Veterinaria_Externo] --> Gestao_de_Veterinarios_to_Conselho_de_Medicina_Veterinaria_Externo
+Gestao_de_Veterinarios_to_Conselho_de_Medicina_Veterinaria_Externo <.. [Gestao_de_Veterinarios] : use via ANTICORRUPTION_LAYER
+
+interface "RESTful HTTP" as Atendimento_ao_Cliente_to_Agendamento_de_Servicos
+[Agendamento_de_Servicos] --> Atendimento_ao_Cliente_to_Agendamento_de_Servicos : OPEN_HOST_SERVICE
+Atendimento_ao_Cliente_to_Agendamento_de_Servicos <.. [Atendimento_ao_Cliente] : consume
+
+interface "Customer-Supplier (Kafka)" as Gerenciamento_Franquia_to_Agendamento_de_Servicos
+[Agendamento_de_Servicos] --> Gerenciamento_Franquia_to_Agendamento_de_Servicos : Supplier
+Gerenciamento_Franquia_to_Agendamento_de_Servicos <.. [Gerenciamento_Franquia] : Customer 
+
+interface "RESTful HTTP" as Atendimento_ao_Cliente_to_Gestao_de_Veterinarios
+[Gestao_de_Veterinarios] --> Atendimento_ao_Cliente_to_Gestao_de_Veterinarios : OPEN_HOST_SERVICE
+Atendimento_ao_Cliente_to_Gestao_de_Veterinarios <.. [Atendimento_ao_Cliente] : consume
+
+interface "RESTful HTTP" as Gerenciamento_Franquia_to_Gestao_de_Veterinarios
+[Gestao_de_Veterinarios] --> Gerenciamento_Franquia_to_Gestao_de_Veterinarios : OPEN_HOST_SERVICE
+Gerenciamento_Franquia_to_Gestao_de_Veterinarios <.. [Gerenciamento_Franquia] : consume
+
+interface "RESTful HTTP" as Atendimento_ao_Cliente_to_Gerenciamento_Franquia
+[Gerenciamento_Franquia] --> Atendimento_ao_Cliente_to_Gerenciamento_Franquia : OPEN_HOST_SERVICE
+Atendimento_ao_Cliente_to_Gerenciamento_Franquia <.. [Atendimento_ao_Cliente] : consume
+
+interface "RESTful HTTP" as Gerenciamento_Franquia_to_Gestao_de_Passeadores
+[Gestao_de_Passeadores] --> Gerenciamento_Franquia_to_Gestao_de_Passeadores : OPEN_HOST_SERVICE
+Gerenciamento_Franquia_to_Gestao_de_Passeadores <.. [Gerenciamento_Franquia] : consume
+
+interface "RESTful HTTP" as Atendimento_ao_Cliente_to_Gestao_de_Passeadores
+[Gestao_de_Passeadores] --> Atendimento_ao_Cliente_to_Gestao_de_Passeadores : OPEN_HOST_SERVICE
+Atendimento_ao_Cliente_to_Gestao_de_Passeadores <.. [Atendimento_ao_Cliente] : consume
+
+interface "RESTful HTTP" as Atendimento_ao_Cliente_to_Gestao_Comercial
+[Gestao_Comercial] --> Atendimento_ao_Cliente_to_Gestao_Comercial : OPEN_HOST_SERVICE
+Atendimento_ao_Cliente_to_Gestao_Comercial <.. [Atendimento_ao_Cliente] : consume
+
+interface "RESTful HTTP" as Gestao_Comercial_to_Catalogo_de_Produtos
+[Catalogo_de_Produtos] --> Gestao_Comercial_to_Catalogo_de_Produtos : OPEN_HOST_SERVICE
+Gestao_Comercial_to_Catalogo_de_Produtos <.. [Gestao_Comercial] : consume
+
+interface "RESTful HTTP" as Gerenciamento_Franquia_to_Gestao_Comercial
+[Gestao_Comercial] --> Gerenciamento_Franquia_to_Gestao_Comercial : OPEN_HOST_SERVICE
+Gerenciamento_Franquia_to_Gestao_Comercial <.. [Gerenciamento_Franquia] : consume
+
+[Disponibilidade_de_Servicos]<-->[Agendamento_de_Servicos] : Partnership (RESTful HTTP)
+
+interface "RESTful HTTP" as Disponibilidade_de_Servicos_to_Gerenciamento_Franquia
+[Gerenciamento_Franquia] --> Disponibilidade_de_Servicos_to_Gerenciamento_Franquia : OPEN_HOST_SERVICE
+Disponibilidade_de_Servicos_to_Gerenciamento_Franquia <.. [Disponibilidade_de_Servicos] : consume
+
+
+
+@enduml

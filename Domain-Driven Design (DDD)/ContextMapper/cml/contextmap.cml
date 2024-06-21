@@ -1,0 +1,126 @@
+BoundedContext Gerenciamento_Franquia {
+    domainVisionStatement = "Fornece as funcionalidades de gerenciamento de franquias cadastradas, disponibilidade de banho e tosa por franquia e funcionários cadastrados no estabelecimento"
+}
+BoundedContext Gestao_Comercial {
+    domainVisionStatement = "Fornece as funcionalidades de ordem de pedidos"
+}
+BoundedContext Atendimento_ao_Cliente {
+    domainVisionStatement = "Atua como fachada aos clientes (usuário e franquia) realizando agendamentos, possibilitando compra de produtos e fornecendo dados de franquias, veterinários e passeadores"
+}
+BoundedContext Agendamento_de_Servicos {
+    domainVisionStatement = "Fornece a funcionalidade de agendamento de consulta, passeio, banho e tosa, bem como notifica a franquia sobre o agendamento"
+
+    Aggregate Agendamento {
+        Entity Agendamento {
+            aggregateRoot
+
+            - AgendamentoId id
+            - PeriodoAgendado periodoAgendado
+            - Status status
+            int clienteId
+        }
+
+        ValueObject AgendamentoId {
+            int agendamentoId key
+        }
+
+        ValueObject PeriodoAgendado {
+        DateTime dataHoraInicio
+        DateTime dataHoraFim
+    }
+
+        enum Status {
+            Agendado, Confirmado, Cancelado, Concluido
+        }
+    }
+}
+BoundedContext Gestao_de_Veterinarios {
+    domainVisionStatement = "Fornece as funcionalidades de consulta médica, bem como filtra e gerencia os médicos veterínários cadastrados por região e disponibilidade"
+}
+BoundedContext Conselho_de_Medicina_Veterinaria_Externo {
+    domainVisionStatement = "Fornece a funcionalidade de gerenciamento dos cadastros de médicos veterinários válidos/aptos para atuar"
+}
+BoundedContext Catalogo_de_Produtos {
+    domainVisionStatement = "Fornece a funcionalidade de verificação de estoque e catálogo completo dos produtos"
+}
+BoundedContext Gestao_de_Passeadores {
+    domainVisionStatement = "Fornece a funcionalidade de passeio, bem como gerencia os passeadores cadastrados e aptos para atuar conforme a região e sua disponibilidade"
+}
+BoundedContext Disponibilidade_de_Servicos {
+    domainVisionStatement = "Fornece a funcionalidade de verificação e marcação de disponibilidade conforme serviço e região"
+
+    Aggregate Disponibilidade {
+        Entity Disponibilidade {
+            aggregateRoot
+
+            - DisponibilidadeId id
+            - List<PeriodoDisponivel> periodoDisponivel
+            - List<PeriodoAgendado> periodosAgendados
+            int franquiaId
+            int profissionalId
+            int servicoId
+            boolean disponivel
+        }
+
+        ValueObject DisponibilidadeId {
+            int disponibilidadeId key
+        }
+
+        ValueObject PeriodoDisponivel {
+            DateTime dataHoraInicio
+            DateTime dataHoraFim
+        }
+    }
+}
+
+ContextMap PetFriends {
+    contains Gerenciamento_Franquia
+    contains Gestao_Comercial
+    contains Atendimento_ao_Cliente
+    contains Agendamento_de_Servicos
+    contains Gestao_de_Veterinarios
+    contains Conselho_de_Medicina_Veterinaria_Externo
+    contains Catalogo_de_Produtos
+    contains Gestao_de_Passeadores
+    contains Disponibilidade_de_Servicos
+
+    Gestao_de_Veterinarios [D, ACL] <- [U] Conselho_de_Medicina_Veterinaria_Externo {
+        implementationTechnology = "RESTful HTTP"
+    }
+    Agendamento_de_Servicos [U, OHS] -> [D] Atendimento_ao_Cliente {
+        implementationTechnology = "RESTful HTTP"
+    }
+    Agendamento_de_Servicos Supplier-Customer Gerenciamento_Franquia {
+        implementationTechnology = "Kafka"
+    }
+    Gestao_de_Veterinarios [U, OHS] -> [D] Atendimento_ao_Cliente {
+        implementationTechnology = "RESTful HTTP"
+    }
+    Gestao_de_Veterinarios [U, OHS] -> [D] Gerenciamento_Franquia {
+        implementationTechnology = "RESTful HTTP"
+    }
+    Gerenciamento_Franquia [U, OHS] -> [D] Atendimento_ao_Cliente {
+        implementationTechnology = "RESTful HTTP"
+    }
+    Gerenciamento_Franquia [D] <- [U, OHS] Gestao_de_Passeadores {
+        implementationTechnology = "RESTful HTTP"
+    }
+    Gestao_de_Passeadores [U, OHS] -> [D] Atendimento_ao_Cliente {
+        implementationTechnology = "RESTful HTTP"
+    } 
+    Gestao_Comercial [U, OHS] -> [D] Atendimento_ao_Cliente {
+        implementationTechnology = "RESTful HTTP"
+    }
+    Gestao_Comercial [D] <- [U, OHS] Catalogo_de_Produtos {
+        implementationTechnology = "RESTful HTTP"
+    }
+    Gestao_Comercial [U, OHS] -> [D] Gerenciamento_Franquia {
+        implementationTechnology = "RESTful HTTP"
+    }
+    Disponibilidade_de_Servicos Partnership Agendamento_de_Servicos {
+        implementationTechnology = "RESTful HTTP"
+    }
+    Disponibilidade_de_Servicos [D] <- [U, OHS] Gerenciamento_Franquia {
+        implementationTechnology = "RESTful HTTP"
+    }
+}
