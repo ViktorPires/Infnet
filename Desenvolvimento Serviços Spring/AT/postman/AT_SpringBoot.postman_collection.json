@@ -1,0 +1,466 @@
+{
+	"info": {
+		"_postman_id": "03b2dfdf-f1c8-43c2-af6e-4e2daf678d1b",
+		"name": "AT_SpringBoot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25422955"
+	},
+	"item": [
+		{
+			"name": "Departamento",
+			"item": [
+				{
+					"name": "Listar Departamentos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/departamentos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"departamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Departamento Por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/departamentos/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"departamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Funcionarios Por Departamento Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/departamentos/1/funcionarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"departamentos",
+								"1",
+								"funcionarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Departamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Tecnologia da Informação\",\n    \"local\": \"Porto Alegre\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/private/departamentos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"private",
+								"departamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Funcionário e Add no Departamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Eduardo Tester\",\n    \"endereco\": \"Cavalhada - Porto Alegre\",\n    \"telefone\": \"51123456789\",\n    \"email\": \"eduardo@tester.com\",\n    \"dataNascimento\": \"1990-09-27\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/private/departamentos/1/funcionario",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"private",
+								"departamentos",
+								"1",
+								"funcionario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Funcionário no Departamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/private/departamentos/1/funcionario/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"private",
+								"departamentos",
+								"1",
+								"funcionario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Departamento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"nome\": \"TI\",\n    \"local\": \"São Paulo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/private/departamentos/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"private",
+								"departamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Departamento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/private/departamentos/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"private",
+								"departamentos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Funcionário",
+			"item": [
+				{
+					"name": "Listar Funcionáros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/funcionarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"funcionarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Funcionário por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/funcionarios/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"funcionarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Funcionário",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Viktor Tester\",\n    \"endereco\": \"Centro Histórico - Porto Alegre\",\n    \"telefone\": \"51987654321\",\n    \"email\": \"viktor@tester.com\",\n    \"dataNascimento\": \"1998-10-07\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/private/funcionarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"private",
+								"funcionarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Funcionário",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Viktor Testador\",\n    \"endereco\": \"Centro Histórico - Porto Alegre\",\n    \"telefone\": \"51987654321\",\n    \"email\": \"viktor@testador.com\",\n    \"dataNascimento\": \"1994-11-17\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/private/funcionarios/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"private",
+								"funcionarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Funcionário",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/private/funcionarios/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"private",
+								"funcionarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuário",
+			"item": [
+				{
+					"name": "Criar Usuário",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Viktor\",\n    \"senha\": \"abc123456\",\n    \"papel\": \"Admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/usuarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Usuários",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/private/usuarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"private",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Usuário Por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/private/usuarios/6677628257e20c355b0ab9e2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"private",
+								"usuarios",
+								"6677628257e20c355b0ab9e2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Usuário",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Viktor Pires\",\n    \"senha\": \"abc123456\",\n    \"papel\": \"Admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/private/usuarios/667754d77759421c32dc1b8f",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"private",
+								"usuarios",
+								"667754d77759421c32dc1b8f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Usuário",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/private/usuarios/667754d77759421c32dc1b8f",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"private",
+								"usuarios",
+								"667754d77759421c32dc1b8f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"followRedirects": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Viktor",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "abc123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}
